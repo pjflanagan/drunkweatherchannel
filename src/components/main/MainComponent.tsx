@@ -1,17 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 import { useCoordinates } from '../../hooks';
+import { API } from '../../helpers';
 
 const MainComponent: FC = () => {
   const coords = useCoordinates();
+  const [weatherData, setWeatherData] = useState(null);
 
-  // if coords are null then show screen for request for location
-
-  // otherwise show weather screen
+  useEffect(() => {
+    if (!!coords && !weatherData) {
+      (async function () {
+        const response = await API.fetchWeatherData(coords);
+        setWeatherData(await response.json());
+      })();
+    }
+  }, [coords]);
 
   return (
     <main>
-      Hello: {JSON.stringify(coords)}
+      Hello:
+      <br /> {JSON.stringify(coords)}
+      <br /> {JSON.stringify(weatherData)}
     </main>
   )
 }

@@ -1,7 +1,14 @@
 import { Coordinates } from '../types';
 
-export const API = {
-  makeWeatherApiEndpoint: ({ lon, lat }: Coordinates): string => {
-    return `/.netlify/functions/get_weather_by_position?lat=${lat}&lon=-${lon}`;
-  },
+const makeWeatherApiEndpoint = ({ lon, lat }: Coordinates): string => {
+  return `/.netlify/functions/get_weather_by_position?lat=${lat}&lon=${lon}`;
+}
+
+export class API {
+
+  static async fetchWeatherData(coords: Coordinates) {
+    return await fetch(makeWeatherApiEndpoint(coords));
+  }
+
+  static
 };
