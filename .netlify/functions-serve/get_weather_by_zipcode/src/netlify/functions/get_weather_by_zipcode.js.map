@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../Users/peterflanagan/Repos/web/weather-drunk/netlify/functions/get_weather_by_zipcode.ts"],
+  "sourceRoot": "/var/folders/n6/mrpxf4sn4yb4jfxy2x93ft340000gn/T/tmp-20654-IAULEG2khuNi",
+  "sourcesContent": ["import { Handler } from '@netlify/functions';\n\ntype Position = {\n  lon: Number,\n  lat: Number\n};\n\nconst OPEN_WEATHER_MAP_API_KEY = process.env.OPEN_WEATHER_MAP_API_KEY;\n\nconst makeEndpoint = ({\n  lon,\n  lat,\n}: Position): string =>\n  `api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&cnt=1&appid=${OPEN_WEATHER_MAP_API_KEY}`;\n\nconst handler: Handler = async (event, context) => {\n\n  const endpoint = makeEndpoint({\n    lon: 100,\n    lat: 100,\n  });\n\n  try {\n    const response = await fetch(endpoint, {\n      method: 'GET'\n    });\n\n    return {\n      statusCode: 200,\n      body: response.json()\n    }\n  } catch (e) {\n    return {\n      statusCode: 400,\n      body: e\n    }\n  }\n}\n\nexport { handler }"],
+  "mappings": ";;;;;;;;;AAAA;AAAA;AAAA;AAOA,IAAM,2BAA2B,QAAQ,IAAI;AAE7C,IAAM,eAAe,CAAC;AAAA,EACpB;AAAA,EACA;AAAA,MAEA,4CAA4C,WAAW,mBAAmB;AAE5E,IAAM,UAAmB,OAAO,OAAO,YAAY;AAEjD,QAAM,WAAW,aAAa;AAAA,IAC5B,KAAK;AAAA,IACL,KAAK;AAAA;AAGP,MAAI;AACF,UAAM,WAAW,MAAM,MAAM,UAAU;AAAA,MACrC,QAAQ;AAAA;AAGV,WAAO;AAAA,MACL,YAAY;AAAA,MACZ,MAAM,SAAS;AAAA;AAAA,WAEV,GAAP;AACA,WAAO;AAAA,MACL,YAAY;AAAA,MACZ,MAAM;AAAA;AAAA;AAAA;",
+  "names": []
+}
