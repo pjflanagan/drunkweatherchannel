@@ -1,5 +1,5 @@
 
-export const getTimeLabelFromSunset = (sunset: number) => {
+const getTimeLabelFromSunset = (sunset: number) => {
   const hour = new Date().getHours();
   const hoursUntilSunset = (new Date(sunset).getHours()) - hour;
   if (hour < 5 || hoursUntilSunset < -1)
@@ -12,8 +12,7 @@ export const getTimeLabelFromSunset = (sunset: number) => {
   return 'afternoon';
 }
 
-// TODO: time untile sunset, not time of day
-export const getTimeLabelFromTime = () => {
+const getTimeLabelFromTime = () => {
   const hour = new Date().getHours();
   switch (true) {
     case hour < 5:
@@ -28,3 +27,14 @@ export const getTimeLabelFromTime = () => {
       return 'night';
   }
 };
+
+export const Time = {
+  getTimeLabel(sunset?: number) {
+    if (sunset) {
+      return getTimeLabelFromSunset(sunset);
+    }
+    return getTimeLabelFromTime();
+  }
+}
+
+
