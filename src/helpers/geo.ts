@@ -1,1 +1,5 @@
-export { }
+
+export type Coordinates = {
+  lat: Number,
+  lon: Number
+}

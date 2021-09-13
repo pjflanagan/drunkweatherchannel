@@ -20,8 +20,6 @@ export const baseFetchEndpoint = async function (endpoint) {
 
   return {
     statusCode: 200,
-    body: JSON.stringify({
-      data: await response.json()
-    })
+    body: JSON.stringify(await response.json())
   };
 }

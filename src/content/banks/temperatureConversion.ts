@@ -1,4 +1,4 @@
-import { PhraseBank } from '../types';
+import { PhraseBank } from '..';
 
 export const temperatureConversion: PhraseBank = {
   k: [

@@ -1,20 +1,24 @@
-import { Coordinates, GifEndpointParams } from '../types';
+import { Coordinates } from '.';
 
 const makeWeatherApiEndpoint = ({ lon, lat }: Coordinates): string => {
   return `/.netlify/functions/weather?lat=${lat}&lon=${lon}`;
 }
 
-const makeGifApiEndpoint = (params: GifEndpointParams): string => {
-  const query = new URLSearchParams(params);
-  return `/.netlify/functions/gif?${query.toString()}`;
+const makeGifApiEndpoint = (query: string): string => {
+  const queryParams = new URLSearchParams({ query });
+  return `/.netlify/functions/gif?${queryParams.toString()}`;
 }
 
 export class API {
   static async fetchWeatherData(coords: Coordinates) {
-    return await fetch(makeWeatherApiEndpoint(coords));
+    const response = await fetch(makeWeatherApiEndpoint(coords));
+    const data = await response.json();
+    return data.list[0];
   }
 
-  static async fetchGifData(params: GifEndpointParams) {
-    return await fetch(makeGifApiEndpoint(params));
+  static async searchGiphy(query: string) {
+    const response = await fetch(makeGifApiEndpoint(query));
+    const data = await response.json();
+    return data.data;
   }
 };

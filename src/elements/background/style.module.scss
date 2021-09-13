@@ -1,0 +1,36 @@
+.background {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  &.cover {
+    z-index: -1;
+    opacity: 0.8;
+    background-color: rgb(53, 7, 66);
+
+    &.morning {
+      background: rgb(245, 207, 0);
+      background: linear-gradient(0deg, rgba(245, 207, 0, 1) 0%, rgba(235, 237, 122, 1) 100%);
+    }
+
+    &.afternoon {
+      background: rgb(255, 108, 19);
+      background: linear-gradient(0deg, rgba(255, 108, 19, 1) 0%, rgba(255, 223, 46, 1) 100%);
+    }
+
+    &.evening {
+      background: rgb(18, 0, 36);
+      background: linear-gradient(0deg, rgba(18, 0, 36, 1) 0%, rgba(245, 100, 0, 1) 100%);
+    }
+
+    &.night {
+      background: rgb(18, 1, 23);
+      background: linear-gradient(0deg, rgba(18, 1, 23, 1) 0%, rgba(10, 7, 87, 1) 100%);
+    }
+  }
+}
