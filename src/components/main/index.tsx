@@ -3,13 +3,14 @@ import { isEmpty } from 'lodash';
 
 import { useCoordinates } from 'src/hooks';
 import { API, TemperatureUnit } from 'src/helpers';
-import { getRandomPhraseFromBank, temperatureConversion, errorMessages } from 'src/content';
+import { getRandomPhraseFromSection, getRandomPhraseFromBank, errorUnableToFetchWeather, phraseTemperatureConversion } from 'src/content';
 import { Container } from 'src/elements';
 
 import { PhraseComponent } from './phraseComponent';
 import { WeatherComponent } from './weatherComponent';
 import { DrinkCounter } from './drinkCounter';
 import { GifSlideshow } from './gifSlideshow';
+import { } from '../../content';
 
 const MainComponent: FC = () => {
 
@@ -35,17 +36,18 @@ const MainComponent: FC = () => {
       }
     })();
     setTempUnit(newTempUnit);
-    setPhrase(getRandomPhraseFromBank(temperatureConversion, newTempUnit));
+    setPhrase(getRandomPhraseFromBank(phraseTemperatureConversion, newTempUnit));
   }
 
   useEffect(() => {
     if (!isEmpty(coords) && isEmpty(weatherData) && isEmpty(errorMessage)) {
+      console.log('FETCH THE WEATHER');
       let newWeatherData;
       (async function () {
         try {
           newWeatherData = await API.fetchWeatherData(coords);
         } catch (e) {
-          setErrorMessage(getRandomPhraseFromBank(errorMessages, 'unableToFetchWeather'));
+          setErrorMessage(getRandomPhraseFromSection(errorUnableToFetchWeather));
           return;
         }
         setWeatherData(newWeatherData);

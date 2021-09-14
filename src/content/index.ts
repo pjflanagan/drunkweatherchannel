@@ -1,2 +1,2 @@
-export * from './phraseBankHelpers';
+export * from './contentBankHelpers';
 export * from './banks';

@@ -1,16 +1,4 @@
 
-TODO:
-1. organize content by where it's used
-phrase/addDrink
-phrase/changeTemperature
-phrase/welcome
-advice
-nickname (drinkCount)
-search/weather
-search/time
-
-
-
 User Usecase Flow
 
 1. A user loads the page and is prompted to turn on location services 

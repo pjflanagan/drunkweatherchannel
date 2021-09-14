@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import * as Style from './style.module.scss';
+
 type PhraseComponentProps = {
   children: string
 }
@@ -24,6 +26,10 @@ export const PhraseComponent = ({
   }, [isVisible]);
 
   return (
-    <div>{children}</div>
+    <div className={Style.phraseHolder}>
+      <div className={Style.phrase}>
+        {children}
+      </div>
+    </div>
   );
 }

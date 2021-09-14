@@ -1,3 +1,3 @@
-export * from './temperatureConversion';
-export * from './drinkCount';
-export * from './errorMessages';
+export * from './phrase';
+export * from './error';
+export * from './sentence';

@@ -1,15 +1,42 @@
 .weather {
+  height: 50%;
   color: #fff;
 
-  .location {
-    font-weight: 300;
+  .weather-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .location-holder {
+      .location {
+        text-align: center;
+        font-weight: 500;
+        padding: 0.5em;
+      }
+    }
+
+    .pre-sentence-holder {
+      min-height: 5em;
+      padding: 0.5em;
+
+      .pre-sentence {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.9em;
+        line-height: 1.6em;
+        font-weight: 300;
+      }
+    }
+
+    .drunk-feels-like-holder {
+      .drunk-feels-like {
+        font-size: 4em;
+        font-weight: 900;
+        text-align: center;
+      }
+    }
+
+    .post-sentence {}
   }
-
-  .pre-sentence {}
-
-  .drunkFeelsLike {
-    font-size: 28px;
-  }
-
-  .post-sentence {}
 }

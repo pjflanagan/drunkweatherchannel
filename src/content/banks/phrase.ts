@@ -1,6 +1,7 @@
-import { PhraseBank } from '..';
 
-export const drinkCountAddDrink: PhraseBank = [
+import { PhraseBank, PhraseBankSection } from '..';
+
+export const phraseAddDrink: PhraseBank = [
   // 0
   [
     `Stone cold sober.`
@@ -49,17 +50,20 @@ export const drinkCountAddDrink: PhraseBank = [
   // many
 ];
 
-// <preposition> <drinkCountNickname>
-export const drinkCountNicknames: PhraseBank = [
-  // 0
-  [
-    'this little designated driver',
-    'the sober monitor here',
-    'Mr. Chaperone',
+export const phraseTemperatureConversion: PhraseBank = {
+  k: [
+    `Okay Mr. Scientist.`,
+    `We talk science, this is science.`,
   ],
-  // 1
-  // ...
-  [
-    'your drunk ass'
+  f: [
+    `Oh, look who's a dumb American.`
+  ],
+  c: [
+    `Oh, look who's a fancy European`,
   ]
-]
+}
+
+export const phraseWelcome: PhraseBankSection = [
+  'Welcome!',
+  'Howdy!'
+];

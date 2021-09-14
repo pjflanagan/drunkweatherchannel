@@ -1,7 +1,7 @@
 
 import { PhraseBank } from '..';
 
-export const gifSearchModifierTime: PhraseBank = {
+export const searchTime: PhraseBank = {
   morning: [
     'morning',
     'sunrise'
@@ -22,9 +22,11 @@ export const gifSearchModifierTime: PhraseBank = {
   ]
 };
 
-export const gifSearchModifierTimeWeather: PhraseBank = {
-  clear: [
-    `clear sky`,
-    `sunny`
-  ],
-};
+// TODO: cloudy day vs clear night
+
+// export const searchWeather: PhraseBank = {
+//   clear: [
+//     `clear sky`,
+//     `sunny`
+//   ],
+// };
