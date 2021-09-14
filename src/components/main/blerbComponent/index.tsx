@@ -1,45 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
 
 import * as Style from './style.module.scss';
-
-type AnimationState = 'animateIn' | 'animateOut' | 'visible';
 
 type BlerbComponentProps = {
   children: string
 }
 
 export const BlerbComponent = ({
-  children
+  children: blerb
 }: BlerbComponentProps) => {
-  const [animationState, setAnimationState] = useState<AnimationState>('animateIn');
+  const [animationKey, setAnimationKey] = useState<string>('key-0');
 
   useEffect(() => {
-    setTimeout(() => setAnimationState('visible'), 400);
-  });
-
-  useEffect(() => {
-    setAnimationState('visible');
-  }, [children]);
-
-  const onTransitionEnd = () => {
-    console.log('onTransitionEnd', animationState);
-    switch (animationState) {
-      case 'visible':
-        setTimeout(() => setAnimationState('animateOut'), 1600);
-        return;
-      case 'animateOut':
-        setAnimationState('animateIn');
-        return;
-    }
-  }
-
-  const className = classNames(Style.phrase, Style[animationState]);
+    const newKey = `key-${Math.random()}-${blerb.replace(' ', '').substring(0, 5)}`;
+    setAnimationKey(newKey);
+  }, [blerb]);
 
   return (
     <div className={Style.phraseHolder}>
-      <div className={className} onTransitionEnd={onTransitionEnd}>
-        {children}
+      <div
+        key={animationKey}
+        className={Style.phrase}
+      // onTransitionEnd={onTransitionEnd}
+      >
+        {blerb}
       </div>
     </div>
   );

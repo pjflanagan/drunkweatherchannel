@@ -50,20 +50,31 @@ export const blerbAddDrink: PhraseBank = [
   // many
 ];
 
+export const blerbRemoveDrink: PhraseBankSection = [
+  `If you lost count, you're probably drunk`,
+  `Did you throw up?`,
+  `Sobering up? Go fix that.`,
+];
+
 export const blerbTemperatureConversion: PhraseBank = {
   k: [
     `Okay Mr. Scientist.`,
     `We talk science, this is science.`,
+    `What is this? Chemistry class?`
   ],
   f: [
-    `Oh, look who's a dumb American.`
+    `Oh, look who's a dumb American.`,
+    `Well, look who's a dumb American.`,
   ],
   c: [
     `Oh, look who's a fancy European`,
+    `Well, look who's the fancy European`,
+    `Celsius? Sure, whatever.`
   ]
 }
 
 export const blerbWelcome: PhraseBankSection = [
   'Welcome!',
-  'Howdy!'
+  'Howdy!',
+  'What can I do you for?'
 ];

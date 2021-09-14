@@ -7,7 +7,7 @@ import {
   getRandomPhraseFromSection,
   getRandomPhraseFromBank,
   errorUnableToFetchWeather,
-  phraseTemperatureConversion,
+  blerbTemperatureConversion,
 } from 'src/content';
 import { Container } from 'src/elements';
 
@@ -40,12 +40,11 @@ const MainComponent: FC = () => {
       }
     })();
     setTempUnit(newTempUnit);
-    setPhrase(getRandomPhraseFromBank(phraseTemperatureConversion, newTempUnit));
+    setPhrase(getRandomPhraseFromBank(blerbTemperatureConversion, newTempUnit));
   }
 
   useEffect(() => {
     if (!isEmpty(coords) && isEmpty(weatherData) && isEmpty(errorMessage)) {
-      console.log('FETCH THE WEATHER');
       let newWeatherData;
       (async function () {
         try {
@@ -73,18 +72,19 @@ const MainComponent: FC = () => {
   return (
     <main>
       <Container>
-        <BlerbComponent>
-          {phrase}
-        </BlerbComponent>
         <WeatherComponent
           weatherData={weatherData}
           cycleTempUnit={cycleTempUnit}
           tempUnit={tempUnit}
           drinkCount={drinkCount}
         />
+        <BlerbComponent>
+          {phrase}
+        </BlerbComponent>
         <DrinkCounter
           setDrinkCount={setDrinkCount}
           drinkCount={drinkCount}
+          setPhrase={setPhrase}
         />
       </Container>
       <GifSlideshow gifList={gifList} />
