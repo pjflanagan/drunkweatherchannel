@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 import * as Style from './style.module.scss';
+
+type AnimationState = 'animateIn' | 'animateOut' | 'visible';
 
 type PhraseComponentProps = {
   children: string
@@ -9,25 +12,33 @@ type PhraseComponentProps = {
 export const PhraseComponent = ({
   children
 }: PhraseComponentProps) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [animationState, setAnimationState] = useState<AnimationState>('animateIn');
 
   useEffect(() => {
-    if (!isVisible) {
-      setIsVisible(true);
-    }
+    setTimeout(() => setAnimationState('visible'), 400);
+  });
+
+  useEffect(() => {
+    setAnimationState('visible');
   }, [children]);
 
-  useEffect(() => {
-    if (isVisible) {
-      setTimeout(() => {
-        setIsVisible(false);
-      }, children.length * 100);
+  const onTransitionEnd = () => {
+    console.log('onTransitionEnd', animationState);
+    switch (animationState) {
+      case 'visible':
+        setTimeout(() => setAnimationState('animateOut'), 1600);
+        return;
+      case 'animateOut':
+        setAnimationState('animateIn');
+        return;
     }
-  }, [isVisible]);
+  }
+
+  const className = classNames(Style.phrase, Style[animationState]);
 
   return (
     <div className={Style.phraseHolder}>
-      <div className={Style.phrase}>
+      <div className={className} onTransitionEnd={onTransitionEnd}>
         {children}
       </div>
     </div>

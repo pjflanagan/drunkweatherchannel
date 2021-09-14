@@ -3,7 +3,8 @@
 
 // Phrases
 
-export type PhraseBankSection = string[];
+type PhraseBankContent = string | string[]
+export type PhraseBankSection = PhraseBankContent[];
 type PhraseBankLabeled = {
   [key: string]: PhraseBankSection
 }

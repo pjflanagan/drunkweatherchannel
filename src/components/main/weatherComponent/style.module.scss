@@ -1,5 +1,6 @@
 .weather {
   height: 50%;
+  min-height: 50%;
   color: #fff;
 
   .weather-content {
@@ -16,7 +17,7 @@
     }
 
     .pre-sentence-holder {
-      min-height: 5em;
+      height: 5em;
       padding: 0.5em;
 
       .pre-sentence {

@@ -43,22 +43,19 @@ export const WeatherComponent = ({
     setSentence(makeWeatherSentence());
   }, [drinkCount]);
 
-  if (isEmpty(weatherData)) {
-    return <></>;
-  };
 
   return (
     <div className={Style.weather}>
       <div className={Style.weatherContent}>
         <div className={Style.locationHolder}>
           <div className={Style.location}>
-            {weatherData.name}
+            {weatherData?.name || 'Searching for location...'}
           </div>
         </div>
 
         <div className={Style.preSentenceHolder}>
           <div className={Style.preSentence}>
-            {sentence}
+            {!!weatherData && sentence}
           </div>
         </div>
 
@@ -67,7 +64,7 @@ export const WeatherComponent = ({
             onClick={cycleTempUnit}
             className={Style.drunkFeelsLike}
           >
-            {drunkFeelsLike}{displayTempUnit}
+            {!!weatherData ? drunkFeelsLike : '--'}{displayTempUnit}
           </div>
         </div>
       </div>

@@ -3,7 +3,12 @@ import { isEmpty } from 'lodash';
 
 import { useCoordinates } from 'src/hooks';
 import { API, TemperatureUnit } from 'src/helpers';
-import { getRandomPhraseFromSection, getRandomPhraseFromBank, errorUnableToFetchWeather, phraseTemperatureConversion } from 'src/content';
+import {
+  getRandomPhraseFromSection,
+  getRandomPhraseFromBank,
+  errorUnableToFetchWeather,
+  phraseTemperatureConversion,
+} from 'src/content';
 import { Container } from 'src/elements';
 
 import { PhraseComponent } from './phraseComponent';

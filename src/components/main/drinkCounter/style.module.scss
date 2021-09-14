@@ -1,0 +1,40 @@
+.drink-counter-holder {
+  height: 30%;
+
+  .drink-counter {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    top: 80%;
+    margin-top: -3em;
+    padding: 0.8em;
+    border-radius: 4px;
+    background: #0002;
+    box-shadow: 0em 0em 2em #000a inset;
+    backdrop-filter: blur(6px);
+    color: #fff;
+    text-align: center;
+
+    .button {
+      width: 2em;
+      height: 100%;
+      font-weight: 900;
+      cursor: pointer;
+
+      &:hover {}
+
+      // &.left {}
+      // &.right {}
+    }
+
+    .center {
+      width: calc(100% - 4em);
+      height: 100%;
+
+      span.unit {
+        color: #fff9;
+        font-size: 0.8em;
+      }
+    }
+  }
+}

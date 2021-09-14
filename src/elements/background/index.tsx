@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import { Time } from 'src/helpers';
 
@@ -21,14 +21,14 @@ export const Background = ({
 }: BackgroundProps) => {
   // TODO: remove this from here, and move to the 
   const timeLabel = Time.getTimeLabel();
-  // const finalClassName = classnames(Style.background, {
+  // const finalClassName = classNames(Style.background, {
   //   [Style.cover]: cover,
   //   [className]: !!className
   // });
   return (
     <>
       <div
-        className={classnames(Style.background, Style.cover, Style[timeLabel])}
+        className={classNames(Style.background, Style.cover, Style[timeLabel])}
       />
       <div
         className={Style.background}
