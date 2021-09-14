@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { getRandomPhraseFromBank, drinksCounter } from 'src/content';
+import { useGeneratedPhrase } from "src/hooks";
 
 import * as Style from './style.module.scss';
 
@@ -9,15 +10,11 @@ export const DrinkCounter = ({
   setDrinkCount,
 }) => {
 
-  const [drinkCounterLabel, setDrinkCounterLabel] = useState(['0', 'drinks']);
-
-  const resetCounterLabel = () => {
-    setDrinkCounterLabel(getRandomPhraseFromBank(drinksCounter, drinkCount));
+  const makeCounterLabel = () => {
+    return getRandomPhraseFromBank(drinksCounter, drinkCount);
   };
 
-  useEffect(() => {
-    resetCounterLabel();
-  }, [drinkCount]);
+  const [drinkCounterLabel, resetCounterLabel] = useGeneratedPhrase(['0', 'drinks'], makeCounterLabel, drinkCount);
 
   const addDrink = () => {
     if (drinkCount === drinksCounter.length - 1) {

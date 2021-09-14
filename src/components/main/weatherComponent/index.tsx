@@ -3,6 +3,7 @@ import { isEmpty } from 'lodash';
 
 import { Weather } from 'src/helpers';
 import { makeSentence, sentenceNickname } from 'src/content';
+import { useGeneratedPhrase } from 'src/hooks';
 
 import * as Style from './style.module.scss';
 
@@ -13,10 +14,9 @@ export const WeatherComponent = ({
   drinkCount
 }) => {
 
-  const [sentence, setSentence] = useState('');
-
   const actualTempKelvin = weatherData?.main?.temp || 0;
-  const drunkFeelsLikeKelvin = weatherData?.main?.feels_like || 0;
+  const actualFeelsLikeKelvin = weatherData?.main?.feels_like || 0;
+  const drunkFeelsLikeKelvin = Weather.calculateFeelsLike(actualFeelsLikeKelvin, drinkCount);
 
   const drunkFeelsLike = Weather.convertTemperature(drunkFeelsLikeKelvin, tempUnit);
   const actualTemp = Weather.convertTemperature(actualTempKelvin, tempUnit);
@@ -35,14 +35,7 @@ export const WeatherComponent = ({
     ]);
   };
 
-  useEffect(() => {
-    setSentence(makeWeatherSentence());
-  })
-
-  useEffect(() => {
-    setSentence(makeWeatherSentence());
-  }, [drinkCount]);
-
+  const [phrase] = useGeneratedPhrase('', makeWeatherSentence, drinkCount);
 
   return (
     <div className={Style.weather}>
@@ -55,7 +48,7 @@ export const WeatherComponent = ({
 
         <div className={Style.preSentenceHolder}>
           <div className={Style.preSentence}>
-            {!!weatherData && sentence}
+            {!!weatherData && phrase}
           </div>
         </div>
 

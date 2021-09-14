@@ -40,5 +40,8 @@ export const Weather = {
       default:
         return 'hot';
     }
+  },
+  calculateFeelsLike: (actualFeelsLikeKelvin, drinkCount) => {
+    return actualFeelsLikeKelvin + drinkCount;
   }
 }

@@ -1,7 +1,7 @@
 
 import { PhraseBank, PhraseBankSection } from '..';
 
-export const phraseAddDrink: PhraseBank = [
+export const blerbAddDrink: PhraseBank = [
   // 0
   [
     `Stone cold sober.`
@@ -50,7 +50,7 @@ export const phraseAddDrink: PhraseBank = [
   // many
 ];
 
-export const phraseTemperatureConversion: PhraseBank = {
+export const blerbTemperatureConversion: PhraseBank = {
   k: [
     `Okay Mr. Scientist.`,
     `We talk science, this is science.`,
@@ -63,7 +63,7 @@ export const phraseTemperatureConversion: PhraseBank = {
   ]
 }
 
-export const phraseWelcome: PhraseBankSection = [
+export const blerbWelcome: PhraseBankSection = [
   'Welcome!',
   'Howdy!'
 ];

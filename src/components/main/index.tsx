@@ -11,11 +11,10 @@ import {
 } from 'src/content';
 import { Container } from 'src/elements';
 
-import { PhraseComponent } from './phraseComponent';
+import { BlerbComponent } from './blerbComponent';
 import { WeatherComponent } from './weatherComponent';
 import { DrinkCounter } from './drinkCounter';
 import { GifSlideshow } from './gifSlideshow';
-import { } from '../../content';
 
 const MainComponent: FC = () => {
 
@@ -74,9 +73,9 @@ const MainComponent: FC = () => {
   return (
     <main>
       <Container>
-        <PhraseComponent>
+        <BlerbComponent>
           {phrase}
-        </PhraseComponent>
+        </BlerbComponent>
         <WeatherComponent
           weatherData={weatherData}
           cycleTempUnit={cycleTempUnit}

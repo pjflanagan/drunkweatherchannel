@@ -5,13 +5,13 @@ import * as Style from './style.module.scss';
 
 type AnimationState = 'animateIn' | 'animateOut' | 'visible';
 
-type PhraseComponentProps = {
+type BlerbComponentProps = {
   children: string
 }
 
-export const PhraseComponent = ({
+export const BlerbComponent = ({
   children
-}: PhraseComponentProps) => {
+}: BlerbComponentProps) => {
   const [animationState, setAnimationState] = useState<AnimationState>('animateIn');
 
   useEffect(() => {

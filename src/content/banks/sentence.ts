@@ -39,11 +39,20 @@ export const sentenceNickname: PhraseBank = [
     'this little designated driver',
     'the sober monitor here',
     'Mr. Chaperone',
+    'the pregnant lady'
   ],
   // 1
-  // ...
   [
-    'your drunk ass'
+    'Mr. One-and-Done',
+  ],
+  // 2
+  [
+    'my friend with the buzz',
+  ],
+  // 3
+  [
+    'your drunk ass',
+    'the frat star'
   ]
 ];
 
