@@ -1,3 +1,18 @@
+
+TODO:
+1. organize content by where it's used
+phrase/addDrink
+phrase/changeTemperature
+phrase/welcome
+advice
+nickname (drinkCount)
+search/weather
+search/time
+
+
+
+User Usecase Flow
+
 1. A user loads the page and is prompted to turn on location services 
 2. Once they approve location services
     1. Load a GIF or a map of where they are as the background

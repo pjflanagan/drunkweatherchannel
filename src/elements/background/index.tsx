@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { Time } from '../../helpers/time';
+import { Time } from 'src/helpers';
 
 import * as Style from './style.module.scss';
 
@@ -12,10 +12,11 @@ type BackgroundProps = {
 }
 
 // TODO: make backgrounds for each time of day in css
+// in an upper level
 
 export const Background = ({
   img,
-  cover,
+  zIndex,
   className,
 }: BackgroundProps) => {
   // TODO: remove this from here, and move to the 
@@ -32,7 +33,8 @@ export const Background = ({
       <div
         className={Style.background}
         style={{
-          backgroundImage: `url(${img})`
+          backgroundImage: `url(${img})`,
+          zIndex
         }}
       />
     </>

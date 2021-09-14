@@ -3,17 +3,18 @@
 
 // Phrases
 
+type PhraseBankSection = string[];
 type PhraseBankLabeled = {
-  [key: string]: string[]
+  [key: string]: PhraseBankSection
 }
-type PhraseBankIndexed = string[][];
+type PhraseBankIndexed = PhraseBankSection[];
 export type PhraseBankSectionIndex = string | number;
 export type PhraseBank = PhraseBankLabeled | PhraseBankIndexed;
 
 // Sentences
 
-type PhraseBankSectionIndexTuple = [PhraseBank, PhraseBankSectionIndex];
-type GeneratedSentencePart = PhraseBankSectionIndexTuple | string;
+type PhraseBankSectionIndexSearch = { bank: PhraseBank, sectionIndex: PhraseBankSectionIndex };
+type GeneratedSentencePart = PhraseBankSectionIndexSearch | string | PhraseBankSection;
 export type GeneratedSentenceStructure = GeneratedSentencePart[];
 
 // Helper Functions ----
@@ -25,28 +26,34 @@ export const makeRange = (length: number, value: string[]) => {
 
 // Search banks
 
-const validateSection = (bank: PhraseBank, section: PhraseBankSectionIndex): PhraseBankSectionIndex => {
-  if (typeof section === 'number') {
-    if (section >= bank.length) {
+const validateSectionIndex = (bank: PhraseBank, sectionIndex: PhraseBankSectionIndex): PhraseBankSectionIndex => {
+  if (typeof sectionIndex === 'number') {
+    if (sectionIndex >= bank.length) {
       return (bank.length as number) - 1;
     }
-    return Math.floor(section);
+    return Math.floor(sectionIndex);
   }
-  return section.toLowerCase();
+  return sectionIndex.toLowerCase();
 }
 
-export const getRandomPhrase = (bank: PhraseBank, section: PhraseBankSectionIndex): string => {
-  const validatedSection = validateSection(bank, section);
-  const phrases = bank[validatedSection];
-  return phrases[Math.floor(Math.random() * phrases.length)];
+export const getRandomPhraseFromBank = (bank: PhraseBank, sectionIndex: PhraseBankSectionIndex): string => {
+  const validatedSection = validateSectionIndex(bank, sectionIndex);
+  const section = bank[validatedSection];
+  return getRandomPhraseFromSection(section);
+}
+
+export const getRandomPhraseFromSection = (section: PhraseBankSection): string => {
+  return section[Math.floor(Math.random() * section.length)];
 }
 
 export const makeSentence = (structure: GeneratedSentenceStructure): string => {
   return structure.map(sentencePart => {
     if (typeof sentencePart === 'string') {
       return sentencePart;
+    } else if (Array.isArray(sentencePart)) {
+      return getRandomPhraseFromSection(sentencePart);
     }
-    const [bank, section] = sentencePart;
-    return getRandomPhrase(bank, section);
+    const { bank, sectionIndex } = sentencePart as PhraseBankSectionIndexSearch;
+    return getRandomPhraseFromBank(bank, sectionIndex);
   }).join(' ');
 }

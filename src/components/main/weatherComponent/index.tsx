@@ -33,8 +33,8 @@ export const WeatherComponent = ({
           'Right now it is',
           `${actualTemp}${displayTempUnit}`,
           (Math.abs(actualTempKelvin - drunkFeelsLikeKelvin) > 3) ? 'but' : 'and',
-          'for', // ['for', 'to'],
-          [drinkCountNicknames, drinkCount],
+          ['for', 'to'],
+          { bank: drinkCountNicknames, sectionIndex: drinkCount },
           'it feels like',
         ])
       }

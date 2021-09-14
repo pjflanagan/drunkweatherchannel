@@ -1,4 +1,4 @@
-import { PhraseBank } from "../phraseBankHelpers";
+import { PhraseBank } from "src/phraseBankHelpers";
 
 export const gifSearchModifierTime: PhraseBank = {
   morning: [

@@ -25,15 +25,25 @@ export const drinkCountAddDrink: PhraseBank = [
   ],
   // 5
   [
-    `Slow down there tiger`
+    `Regardless of the weather, you should Uber.`,
+    `Slow down there tiger!`
   ],
   // 6
   [
-    `99 bottles of beer on the wall`
+    `99 bottles of beer on the wall...`
   ],
   // 7
+  [
+    'Nice beer blanket you got there.'
+  ],
   // 8
+  [
+    'A shroud of spirits.'
+  ],
   // 9
+  [
+    'Moonshine mantle.'
+  ],
   // 10
   // 11
   // many

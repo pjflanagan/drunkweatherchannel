@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Coordinates } from '../helpers';
+import { Coordinates } from 'src/helpers';
 
 const useCoordinates = () => {
 

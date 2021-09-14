@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
-import { Background } from '../../../elements';
+import { Background } from 'src/elements';
 
 const getRandomImage = (gifList) => {
   const imageIndex = Math.floor(Math.random() * gifList.length);

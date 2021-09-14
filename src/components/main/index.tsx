@@ -2,11 +2,14 @@ import React, { FC, useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
 import { useCoordinates } from 'src/hooks';
-import { API, Weather, TemperatureUnit } from 'src/helpers';
-import { getRandomPhrase, temperatureConversion, drinkCountNicknames, makeSentence } from 'src/content';
+import { API, TemperatureUnit } from 'src/helpers';
+import { getRandomPhraseFromBank, temperatureConversion, errorMessages } from 'src/content';
+import { Container } from 'src/elements';
 
+import { PhraseComponent } from './phraseComponent';
+import { WeatherComponent } from './weatherComponent';
+import { DrinkCounter } from './drinkCounter';
 import { GifSlideshow } from './gifSlideshow';
-import { Container } from './container';
 
 const MainComponent: FC = () => {
 
@@ -17,6 +20,7 @@ const MainComponent: FC = () => {
   const [phrase, setPhrase] = useState('Welcome!');
   const [gifSearch, setGifSearch] = useState('');
   const [gifList, setGifList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const cycleTempUnit = () => {
     const newTempUnit = (() => {
@@ -31,13 +35,19 @@ const MainComponent: FC = () => {
       }
     })();
     setTempUnit(newTempUnit);
-    setPhrase(getRandomPhrase(temperatureConversion, newTempUnit));
+    setPhrase(getRandomPhraseFromBank(temperatureConversion, newTempUnit));
   }
 
   useEffect(() => {
-    if (!isEmpty(coords) && isEmpty(weatherData)) {
+    if (!isEmpty(coords) && isEmpty(weatherData) && isEmpty(errorMessage)) {
+      let newWeatherData;
       (async function () {
-        const newWeatherData = await API.fetchWeatherData(coords);
+        try {
+          newWeatherData = await API.fetchWeatherData(coords);
+        } catch (e) {
+          setErrorMessage(getRandomPhraseFromBank(errorMessages, 'unableToFetchWeather'));
+          return;
+        }
         setWeatherData(newWeatherData);
         setGifSearch(newWeatherData.weather[0].description);
       })();
@@ -51,20 +61,26 @@ const MainComponent: FC = () => {
         const newGifList = [...gifList, ...searchGifList];
         setGifList(newGifList);
       })();
-
     }
   }, [gifSearch]);
 
   return (
     <main>
-      <Container
-        phrase={phrase}
-        weatherData={weatherData}
-        cycleTempUnit={cycleTempUnit}
-        setDrinkCount={setDrinkCount}
-        drinkCount={drinkCount}
-        tempUnit={tempUnit}
-      />
+      <Container>
+        <PhraseComponent>
+          {phrase}
+        </PhraseComponent>
+        <WeatherComponent
+          weatherData={weatherData}
+          cycleTempUnit={cycleTempUnit}
+          tempUnit={tempUnit}
+          drinkCount={drinkCount}
+        />
+        <DrinkCounter
+          setDrinkCount={setDrinkCount}
+          drinkCount={drinkCount}
+        />
+      </Container>
       <GifSlideshow gifList={gifList} />
     </main>
   )
