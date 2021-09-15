@@ -37,7 +37,7 @@ export const WeatherComponent = ({
     ]);
   };
 
-  const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drinkCount, tempUnit]);
+  const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drinkCount, tempUnit, weatherData]);
 
   return (
     <div className={Style.weather}>
