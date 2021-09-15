@@ -7,12 +7,14 @@ const useCoordinates = () => {
   const [coords, setCoords] = useState<Coordinates>(null);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setCoords({
-        lat: position.coords.latitude,
-        lon: position.coords.longitude,
+    if (!coords) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setCoords({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        });
       });
-    });
+    }
   });
 
   return coords;

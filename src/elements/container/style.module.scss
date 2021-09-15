@@ -3,5 +3,7 @@
   height: 100%;
   padding: 1em;
   position: fixed;
-  box-shadow: 0em 0em 8em #0008 inset;
+  max-width: 24em;
+  left: 50%;
+  transform: translateX(-50%);
 }

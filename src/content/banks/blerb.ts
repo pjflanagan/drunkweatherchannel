@@ -8,17 +8,20 @@ export const blerbAddDrink: PhraseBank = [
   ],
   // 1
   [
-    `Some light pregaming, respectable`,
-    `More or less sober`,
+    `Some light pregaming, respectable.`,
+    `More or less sober.`,
     `One drink, what is this? Church?`
   ],
   // 2
   [
-    `Why you babysittin' only 2 or 3 shots?`
+    `Why you babysittin' only 2 or 3 shots?`,
+    'Gettin tipsy...',
+    `Let's get this party started!`
   ],
   // 3
   [
-    `Why you babysittin' only 2 or 3 shots?`
+    `Why you babysittin' only 2 or 3 shots?`,
+    `Let's get it started in here!`
   ],
   // 4
   [
@@ -31,21 +34,31 @@ export const blerbAddDrink: PhraseBank = [
   ],
   // 6
   [
+    `This is your conscience speaking, keep going.`,
     `99 bottles of beer on the wall...`
   ],
   // 7
   [
-    'Nice beer blanket you got there.'
+    `This is your conscience speaking, okay woah there.`,
+    'Nice beer blanket you got there.',
+    'Who wants to do karaoke?',
   ],
   // 8
   [
-    'A shroud of spirits.'
+    `You're gonna hate you tomorrow.`,
+    'A shroud of spirits.',
+    'You should probably leave for the bar now.',
+    `Tip your driver, tip your bartender, tip yourself.`,
   ],
   // 9
   [
+    'Is this a dare?',
     'Moonshine mantle.'
   ],
   // 10
+  [
+    'Certainly this was the last one.'
+  ],
   // 11
   // many
 ];

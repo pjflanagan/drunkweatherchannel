@@ -23,7 +23,6 @@ const MainComponent: FC = () => {
   const [drinkCount, setDrinkCount] = useState<number>(0);
   const [weatherData, setWeatherData] = useState(null);
   const [phrase, setPhrase] = useState('Welcome!');
-  const [gifSearch, setGifSearch] = useState('');
   const [gifList, setGifList] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -49,25 +48,27 @@ const MainComponent: FC = () => {
       (async function () {
         try {
           newWeatherData = await API.fetchWeatherData(coords);
+          console.log(newWeatherData);
         } catch (e) {
           setErrorMessage(getRandomPhraseFromSection(errorUnableToFetchWeather));
           return;
         }
         setWeatherData(newWeatherData);
-        setGifSearch(newWeatherData.weather[0].description);
       })();
     }
   }, [coords]);
 
   useEffect(() => {
-    if (!isEmpty(gifSearch)) {
+    // TODO: GIF SEARCH MODIFIERS
+    if (!isEmpty(weatherData)) {
+      const weatherDescription = weatherData.weather[0].description;
       (async function () {
-        const searchGifList = await API.searchGiphy(`weather ${gifSearch}`);
+        const searchGifList = await API.searchGiphy(`weather ${weatherDescription}`);
         const newGifList = [...gifList, ...searchGifList];
         setGifList(newGifList);
       })();
     }
-  }, [gifSearch]);
+  }, [weatherData]);
 
   return (
     <main>

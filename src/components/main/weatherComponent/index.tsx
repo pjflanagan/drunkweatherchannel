@@ -46,8 +46,8 @@ export const WeatherComponent = ({
           </div>
         </div>
 
-        <div className={Style.preSentenceHolder}>
-          <div className={Style.preSentence}>
+        <div className={Style.sentenceHolder}>
+          <div className={Style.sentence}>
             {!!weatherData && phrase}
           </div>
         </div>
@@ -58,6 +58,12 @@ export const WeatherComponent = ({
             className={Style.drunkFeelsLike}
           >
             {!!weatherData ? drunkFeelsLike : '--'}{displayTempUnit}
+          </div>
+        </div>
+
+        <div className={Style.sentenceHolder}>
+          <div className={Style.sentence}>
+            {!!weatherData && 'so, bring a jacket.'}
           </div>
         </div>
       </div>
