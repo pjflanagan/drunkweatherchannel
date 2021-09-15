@@ -1,5 +1,13 @@
 
-import { PhraseBank } from '..';
+import { PhraseGetter, PhraseBank } from '..';
+
+export const getSentenceTime: PhraseGetter = () => {
+  const hour = new Date().getHours();
+  if (hour === 17) {
+    return `It's 5 o'clock where you are.`;
+  }
+  return `It's 5 o'clock somewhere.`;
+}
 
 export const sentenceTime: PhraseBank = {
   morning: [

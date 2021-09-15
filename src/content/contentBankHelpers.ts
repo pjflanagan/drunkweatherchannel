@@ -3,6 +3,7 @@
 
 // Phrases
 
+export type PhraseGetter = () => string;
 type PhraseBankContent = string | string[]
 export type PhraseBankSection = PhraseBankContent[];
 type PhraseBankLabeled = {

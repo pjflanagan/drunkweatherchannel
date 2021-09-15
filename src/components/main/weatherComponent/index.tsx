@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
 import { Weather } from 'src/helpers';
-import { makeSentence, sentenceNickname } from 'src/content';
+import { makeSentence, sentenceNickname, getSentenceTime } from 'src/content';
 import { useGeneratedPhrase } from 'src/hooks';
 
 import * as Style from './style.module.scss';
@@ -24,7 +24,9 @@ export const WeatherComponent = ({
 
   const makeWeatherSentence = () => {
     return makeSentence([
-      'Right now it is',
+      getSentenceTime(),
+      ['Right now', 'Outside'],
+      [`it's`, `it is`, 'the weather is'],
       `${actualTemp}${displayTempUnit}`,
       // 'and',
       // clear, overcast, breezy, windy, cloudy, raining, snowing
@@ -35,7 +37,7 @@ export const WeatherComponent = ({
     ]);
   };
 
-  const [phrase] = useGeneratedPhrase('', makeWeatherSentence, drinkCount);
+  const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drinkCount, tempUnit]);
 
   return (
     <div className={Style.weather}>

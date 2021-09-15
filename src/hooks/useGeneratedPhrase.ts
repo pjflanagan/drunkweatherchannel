@@ -5,14 +5,14 @@ import { PhraseBankContent } from 'src/content';
 const useGeneratedPhrase = (
   init: PhraseBankContent,
   generatePhrase: () => PhraseBankContent,
-  listener: any
+  listener: any[]
 ) => {
 
   const [phrase, setPhrase] = useState<PhraseBankContent>(init);
 
   useEffect(() => {
     setPhrase(generatePhrase());
-  }, [listener]);
+  }, listener);
 
   const resetPhrase = () => {
     setPhrase(generatePhrase());

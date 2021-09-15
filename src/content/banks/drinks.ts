@@ -36,6 +36,7 @@ export const drinksCounter: PhraseBank = [
   ],
   // 4
   [
+    ['2', 'double shots'],
     ['1', 'swig of moonshine'],
     ['1', 'flight of beers'],
     ...drinkPluralWordBank.map(word => ['4', word]),
@@ -43,7 +44,7 @@ export const drinksCounter: PhraseBank = [
   // 5
   [
     ...drinkPluralWordBank.map(word => ['5', word]),
-    ['1', 'flight of  strong beers']
+    ['1', 'flight of strong beers']
   ],
   // 6
   [
@@ -53,6 +54,7 @@ export const drinksCounter: PhraseBank = [
   // 7
   [
     ...drinkPluralWordBank.map(word => ['7', word]),
+    ['1', 'brewery tour']
   ],
   // 8
   [
@@ -63,6 +65,7 @@ export const drinksCounter: PhraseBank = [
   // 9
   [
     ...drinkPluralWordBank.map(word => ['9', word]),
+    ['1', 'half of a fifth'],
   ],
   // 10
   [

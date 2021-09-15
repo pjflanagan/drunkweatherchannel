@@ -15,7 +15,11 @@ export const DrinkCounter = ({
     return getRandomPhraseFromBank(drinksCounter, drinkCount);
   };
 
-  const [drinkCounterLabel, resetCounterLabel] = useGeneratedPhrase(['0', 'drinks'], makeCounterLabel, drinkCount);
+  const [drinkCounterLabel, resetCounterLabel] = useGeneratedPhrase(
+    ['0', 'drinks'],
+    makeCounterLabel,
+    [drinkCount]
+  );
 
   const addDrink = () => {
     setPhrase(getRandomPhraseFromBank(blerbAddDrink, drinkCount + 1));

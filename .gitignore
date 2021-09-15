@@ -4,3 +4,4 @@ public
 .env
 .netlify
 .package-lock
+.DS_Store
