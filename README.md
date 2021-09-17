@@ -1,11 +1,12 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a609f315-bbcb-41b1-ae15-c2f7837770ca/deploy-status)](https://app.netlify.com/sites/drunk-weather-channel/deploys)
 
-# Weather Drunk
+# Drunk Weather Channel
 
-An webapp that tells you what it feels like outside
+[A webapp](https://drunk-weather-channel.netlify.com/) that tells you what it feels like outside
 based on how many drinks you've had.
 
-[Open Weather Map](https://openweathermap.org/)
-[Giphy](https://giphy.com/)
+- [Open Weather Map](https://openweathermap.org/)
+- [Giphy](https://giphy.com/)
 
 ## Netlify Gatsby Typescript Example
 
