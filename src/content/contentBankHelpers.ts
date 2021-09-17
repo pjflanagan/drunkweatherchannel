@@ -3,8 +3,8 @@
 
 // Phrases
 
-export type PhraseGetter = () => string;
-type PhraseBankContent = string | string[]
+type PhraseBankContent = string | string[];
+export type PhraseGetter = () => PhraseBankContent;
 export type PhraseBankSection = PhraseBankContent[];
 type PhraseBankLabeled = {
   [key: string]: PhraseBankSection
@@ -38,13 +38,13 @@ const validateSectionIndex = (bank: PhraseBank, sectionIndex: PhraseBankSectionI
   return sectionIndex.toLowerCase();
 }
 
-export const getRandomPhraseFromBank = (bank: PhraseBank, sectionIndex: PhraseBankSectionIndex): string => {
+export const getRandomPhraseFromBank = (bank: PhraseBank, sectionIndex: PhraseBankSectionIndex): PhraseBankContent => {
   const validatedSection = validateSectionIndex(bank, sectionIndex);
   const section = bank[validatedSection];
   return getRandomPhraseFromSection(section);
 }
 
-export const getRandomPhraseFromSection = (section: PhraseBankSection): string => {
+export const getRandomPhraseFromSection = (section: PhraseBankSection): PhraseBankContent => {
   return section[Math.floor(Math.random() * section.length)];
 }
 

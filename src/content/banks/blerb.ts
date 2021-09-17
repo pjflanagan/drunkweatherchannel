@@ -64,16 +64,19 @@ export const blerbAddDrink: PhraseBank = [
 ];
 
 export const blerbRemoveDrink: PhraseBankSection = [
-  `If you lost count, you're probably drunk`,
+  `If you lost count, you're probably drunk.`,
   `Did you throw up?`,
   `Sobering up? Go fix that.`,
+  `One cup of water`,
+  `Bartender, I'll have one negative drink.`
 ];
 
 export const blerbTemperatureConversion: PhraseBank = {
   k: [
     `Okay Mr. Scientist.`,
     `We talk science, this is science.`,
-    `What is this? Chemistry class?`
+    `What is this? Chemistry class?`,
+    `Experimenting?`
   ],
   f: [
     `Oh, look who's a dumb American.`,

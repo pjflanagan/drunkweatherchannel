@@ -1,35 +1,40 @@
 
-import { PhraseGetter, PhraseBank } from '..';
+import { Time } from 'src/helpers';
+
+import { PhraseGetter, PhraseBank, getRandomPhraseFromBank } from '..';
+
+const sentenceTime: PhraseBank = {
+  morning: [
+    `It's 5 o'clock somewhere.`,
+    'Good morning, sunshine.',
+    `It's a beautiful new day!`,
+    `A little early for drinking, huh?`,
+    `Top of the mornin' to ya!`,
+  ],
+  afternoon: [
+    `It's 5 o'clock somewhere.`,
+    'Good afternoon',
+    'Tailgating?',
+    'Having a darty?'
+  ],
+  evening: [
+    'Good evening.',
+    // 'dusk',
+    // 'sunset'
+  ],
+  night: [
+    // 'night',
+    `It's party time!`
+  ]
+};
 
 export const getSentenceTime: PhraseGetter = () => {
   const hour = new Date().getHours();
   if (hour === 17) {
     return `It's 5 o'clock where you are.`;
   }
-  return `It's 5 o'clock somewhere.`;
+  return getRandomPhraseFromBank(sentenceTime, Time.getTimeLabel());
 }
-
-export const sentenceTime: PhraseBank = {
-  morning: [
-    'morning',
-    'beautiful new day',
-    'a little early for drinking, huh?'
-  ],
-  afternoon: [
-    'day',
-    'afternoon',
-    'darty'
-  ],
-  evening: [
-    'evening',
-    'dusk',
-    'sunset'
-  ],
-  night: [
-    'night',
-    'witching hour'
-  ]
-};
 
 export const sentenceWindspeed: PhraseBank = {
   still: [
