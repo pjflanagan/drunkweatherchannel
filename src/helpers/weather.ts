@@ -3,6 +3,8 @@ export type TemperatureUnit = 'f' | 'c' | 'k';
 
 const convertToFahrenheit = (kelvin: number) => ((kelvin - 273.15) * 1.8) + 32
 
+const convertFahrenheitToKelvin = (f: number) => ((f - 32) / 1.8) + 273.15;
+
 export const Weather = {
   convertTemperature: (kelvin: number, unit: TemperatureUnit) => {
     const newTemp = (() => {
@@ -42,6 +44,20 @@ export const Weather = {
     }
   },
   calculateFeelsLike: (actualFeelsLikeKelvin, drinkCount) => {
-    return actualFeelsLikeKelvin + drinkCount;
+    if (drinkCount === 0) {
+      // if no drinks, return original
+      return actualFeelsLikeKelvin;
+    }
+    const actualFeelsLikeF = convertToFahrenheit(actualFeelsLikeKelvin);
+    if (actualFeelsLikeF > 86) {
+      // if it is warmer than 86, then just return original
+      return actualFeelsLikeKelvin;
+    }
+    const drunkFeelsLikeF = actualFeelsLikeF + 6 * Math.atan((drinkCount - 2) / 6) + 2;
+    if (drunkFeelsLikeF > 86 && actualFeelsLikeF < 86) {
+      // if the drunk feels like is higher than 86, return 86
+      return 86;
+    }
+    return convertFahrenheitToKelvin(drunkFeelsLikeF);
   }
 }

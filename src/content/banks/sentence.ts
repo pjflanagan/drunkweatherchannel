@@ -43,7 +43,18 @@ export const sentenceWindspeed: PhraseBank = {
   breezy: [
     // 4 - 6 mph
   ]
-}
+};
+
+export const sentenceConjunctions: PhraseBank = {
+  and: [
+    'and'
+  ],
+  but: [
+    'although',
+    'yet',
+    'but'
+  ]
+};
 
 // <preposition> <drinkCountNickname>
 export const sentenceNickname: PhraseBank = [

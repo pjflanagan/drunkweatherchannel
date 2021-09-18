@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
 import { Weather } from 'src/helpers';
-import { makeSentence, sentenceNickname, getSentenceTime } from 'src/content';
+import { makeSentence, sentenceNickname, getSentenceTime, sentenceConjunctions } from 'src/content';
 import { useGeneratedPhrase } from 'src/hooks';
 
 import * as Style from './style.module.scss';
@@ -30,7 +30,11 @@ export const WeatherComponent = ({
       `${actualTemp}${displayTempUnit}`,
       // 'and',
       // clear, overcast, breezy, windy, cloudy, raining, snowing
-      (Math.abs(actualTempKelvin - drunkFeelsLikeKelvin) > 3) ? 'but' : 'and',
+      {
+        bank: sentenceConjunctions,
+        sectionIndex: (Math.abs(actualTempKelvin - drunkFeelsLikeKelvin) > 3) ? 'but' : 'and'
+      }
+      ,
       ['for', 'to'],
       { bank: sentenceNickname, sectionIndex: drinkCount },
       'it feels like',

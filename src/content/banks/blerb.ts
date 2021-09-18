@@ -67,7 +67,7 @@ export const blerbRemoveDrink: PhraseBankSection = [
   `If you lost count, you're probably drunk.`,
   `Did you throw up?`,
   `Sobering up? Go fix that.`,
-  `One cup of water`,
+  `One cup of water.`,
   `Bartender, I'll have one negative drink.`
 ];
 
