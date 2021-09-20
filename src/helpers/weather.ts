@@ -1,9 +1,30 @@
+// import { makeArray } from ".";
 
 export type TemperatureUnit = 'f' | 'c' | 'k';
 
 const convertToFahrenheit = (kelvin: number) => ((kelvin - 273.15) * 1.8) + 32
 
 const convertFahrenheitToKelvin = (f: number) => ((f - 32) / 1.8) + 273.15;
+
+// actualFeelsLikeF: [ startFeelingWarmDrink, maxDrunkFeelsLikeTempDeltaF ]
+// const weatherFormulaMap = [
+//   // 0 and less - 10
+//   ...makeArray(11, [9, 8]),
+//   // 11 - 20
+//   ...makeArray(10, [8, 9]),
+//   // 21 - 30
+//   ...makeArray(10, [7, 10]),
+//   // 31 - 40
+//   ...makeArray(10, [7, 11]),
+//   // 41 - 50
+//   ...makeArray(10, [6, 13]),
+//   // 51 - 60
+//   ...makeArray(10, [6, 15]),
+//   // 61 - 70
+//   ...makeArray(10, [5, 13]),
+//   // 71 - 80
+//   ...makeArray(10, [4, 9]),
+// ];
 
 export const Weather = {
   convertTemperature: (kelvin: number, unit: TemperatureUnit) => {

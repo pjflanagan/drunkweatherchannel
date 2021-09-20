@@ -21,11 +21,6 @@ export type GeneratedSentenceStructure = GeneratedSentencePart[];
 
 // Helper Functions ----
 
-// Make banks
-export const makeRange = (length: number, value: string[]) => {
-  return Array(length).map(() => value);
-}
-
 // Search banks
 
 const validateSectionIndex = (bank: PhraseBank, sectionIndex: PhraseBankSectionIndex): PhraseBankSectionIndex => {

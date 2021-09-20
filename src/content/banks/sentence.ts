@@ -5,6 +5,7 @@ import { PhraseGetter, PhraseBank, getRandomPhraseFromBank } from '..';
 
 const sentenceTime: PhraseBank = {
   morning: [
+    `Hair of the dog?`,
     `It's 5 o'clock somewhere.`,
     'Good morning, sunshine.',
     `It's a beautiful new day!`,
@@ -76,7 +77,8 @@ export const sentenceNickname: PhraseBank = [
   // 3
   [
     'your drunk ass',
-    'the frat star'
+    'the frat star',
+    `George Thorogood-and-drunk`
   ]
 ];
 

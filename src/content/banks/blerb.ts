@@ -1,6 +1,13 @@
 
 import { PhraseBank, PhraseBankSection } from '..';
 
+export const blerbWelcome: PhraseBankSection = [
+  'Welcome!',
+  'Howdy!',
+  'What can I do you for?',
+  `Sir, have you been drinking?`
+];
+
 export const blerbAddDrink: PhraseBank = [
   // 0
   [
@@ -21,7 +28,8 @@ export const blerbAddDrink: PhraseBank = [
   // 3
   [
     `Why you babysittin' only 2 or 3 shots?`,
-    `Let's get it started in here!`
+    `Let's get it started in here!`,
+    `One bourbon, one scotch, one beer.`
   ],
   // 4
   [
@@ -35,7 +43,8 @@ export const blerbAddDrink: PhraseBank = [
   // 6
   [
     `This is your conscience speaking, keep going.`,
-    `99 bottles of beer on the wall...`
+    `99 bottles of beer on the wall...`,
+    `Sloshed in the sauce.`
   ],
   // 7
   [
@@ -89,8 +98,3 @@ export const blerbTemperatureConversion: PhraseBank = {
   ]
 }
 
-export const blerbWelcome: PhraseBankSection = [
-  'Welcome!',
-  'Howdy!',
-  'What can I do you for?'
-];

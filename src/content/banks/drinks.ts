@@ -1,4 +1,4 @@
-import { makeRange, PhraseBank } from '..';
+import { PhraseBank } from '..';
 
 const drinkPluralWordBank = [
   'drinks',
@@ -32,6 +32,7 @@ export const drinksCounter: PhraseBank = [
   // 3
   [
     ['1', 'pull from a handle'],
+
     ...drinkPluralWordBank.map(word => ['3', word]),
   ],
   // 4

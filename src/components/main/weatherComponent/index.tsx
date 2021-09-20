@@ -68,9 +68,9 @@ export const WeatherComponent = ({
         </div>
 
         <div className={Style.sentenceHolder}>
-          <div className={Style.sentence}>
+          {/* <div className={Style.sentence}>
             {!!weatherData && 'so, bring a jacket.'}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
