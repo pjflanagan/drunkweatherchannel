@@ -1,3 +1,2 @@
 export { }
-
-// TODO: epithet
+// TODO: splash screen

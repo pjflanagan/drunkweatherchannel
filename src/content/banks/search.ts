@@ -1,6 +1,7 @@
 
 import { PhraseBank } from '..';
 
+// TODO: this isn't used yet, it'll go on the search terms
 export const searchTime: PhraseBank = {
   morning: [
     'morning',
@@ -9,12 +10,14 @@ export const searchTime: PhraseBank = {
   afternoon: [
     'day',
     'daytime',
+    'darty',
     'afternoon'
   ],
   evening: [
     'evening',
     'dusk',
-    'sunset'
+    'sunset',
+    'bar'
   ],
   night: [
     'night',

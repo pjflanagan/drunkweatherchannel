@@ -11,7 +11,8 @@ export const blerbWelcome: PhraseBankSection = [
 export const blerbAddDrink: PhraseBank = [
   // 0
   [
-    `Stone cold sober.`
+    `Stone cold sober.`,
+    `I've had more drinks in AA`
   ],
   // 1
   [
@@ -33,7 +34,8 @@ export const blerbAddDrink: PhraseBank = [
   ],
   // 4
   [
-    `1 tequila, 2 tequila, 3 tequila, FLOOR!`
+    `1 tequila, 2 tequila, 3 tequila, FLOOR!`,
+    `We should hang out more often`,
   ],
   // 5
   [
@@ -51,6 +53,7 @@ export const blerbAddDrink: PhraseBank = [
     `This is your conscience speaking, okay woah there.`,
     'Nice beer blanket you got there.',
     'Who wants to do karaoke?',
+    'Drunk as a skunk.'
   ],
   // 8
   [
@@ -62,11 +65,12 @@ export const blerbAddDrink: PhraseBank = [
   // 9
   [
     'Is this a dare?',
-    'Moonshine mantle.'
+    'Moonshine mantle.',
+    'God be with you.'
   ],
   // 10
   [
-    'Certainly this was the last one.'
+    'Certainly this is the last one.'
   ],
   // 11
   // many

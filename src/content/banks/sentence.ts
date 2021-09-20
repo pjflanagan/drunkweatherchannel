@@ -1,5 +1,5 @@
 
-import { Time } from 'src/helpers';
+import { Time, makeArray } from 'src/helpers';
 
 import { PhraseGetter, PhraseBank, getRandomPhraseFromBank } from '..';
 
@@ -20,12 +20,13 @@ const sentenceTime: PhraseBank = {
   ],
   evening: [
     'Good evening.',
-    // 'dusk',
-    // 'sunset'
+    'The night is young.',
+    `Let's get this party started.`
   ],
   night: [
-    // 'night',
-    `It's party time!`
+    `It's party time!`,
+    'Tonight is the night!',
+    `Big night?`,
   ]
 };
 
@@ -37,14 +38,14 @@ export const getSentenceTime: PhraseGetter = () => {
   return getRandomPhraseFromBank(sentenceTime, Time.getTimeLabel());
 }
 
-export const sentenceWindspeed: PhraseBank = {
-  still: [
-    // 1 - 3 mph
-  ],
-  breezy: [
-    // 4 - 6 mph
-  ]
-};
+// export const sentenceWindspeed: PhraseBank = {
+//   still: [
+//     // 1 - 3 mph
+//   ],
+//   breezy: [
+//     // 4 - 6 mph
+//   ]
+// };
 
 export const sentenceConjunctions: PhraseBank = {
   and: [
@@ -69,16 +70,34 @@ export const sentenceNickname: PhraseBank = [
   // 1
   [
     'Mr. One-and-Done',
+    'the rave mom',
+    'the babysitter'
   ],
-  // 2
-  [
+  // 2 - 5
+  ...makeArray(4, [
     'my friend with the buzz',
-  ],
-  // 3
+    'my good friend',
+    `Bloody Mary`,
+    `Sammy Adams`
+  ]),
+  // 6 - 9 
+  ...makeArray(4, [
+    `this boozehead`,
+    `Goneski`,
+    `Hasselhoffed`,
+    `Señor Ridiculoso`,
+    `Captain Morgan`,
+    `Bacardi B`
+  ]),
+  // 10+
   [
     'your drunk ass',
     'the frat star',
-    `George Thorogood-and-drunk`
+    `Hennessy Henry`,
+    `George Thorogood-and-drunk`,
+    `Rebecca Blackout`,
+    `Ridrinkulous`,
+    `Jim Beam`
   ]
 ];
 

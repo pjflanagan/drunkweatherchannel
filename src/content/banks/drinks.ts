@@ -32,7 +32,6 @@ export const drinksCounter: PhraseBank = [
   // 3
   [
     ['1', 'pull from a handle'],
-
     ...drinkPluralWordBank.map(word => ['3', word]),
   ],
   // 4
@@ -70,6 +69,7 @@ export const drinksCounter: PhraseBank = [
   ],
   // 10
   [
+    ['1', 'successful tailgate'],
     ...drinkPluralWordBank.map(word => ['10', word]),
   ],
   // 11

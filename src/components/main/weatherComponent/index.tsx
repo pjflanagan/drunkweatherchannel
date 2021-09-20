@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
 import { Weather } from 'src/helpers';
-import { makeSentence, sentenceNickname, getSentenceTime, sentenceConjunctions } from 'src/content';
+import { makeSentence, getRandomPhraseFromSection, sentenceNickname, getSentenceTime, sentenceConjunctions, locationCannotLocate } from 'src/content';
 import { useGeneratedPhrase } from 'src/hooks';
 
 import * as Style from './style.module.scss';
@@ -29,7 +29,7 @@ export const WeatherComponent = ({
       [`it's`, `it is`, 'the weather is'],
       `${actualTemp}${displayTempUnit}`,
       // 'and',
-      // clear, overcast, breezy, windy, cloudy, raining, snowing
+      // TODO: clear, overcast, breezy, windy, cloudy, raining, snowing
       {
         bank: sentenceConjunctions,
         sectionIndex: (Math.abs(actualTempKelvin - drunkFeelsLikeKelvin) > 3) ? 'but' : 'and'
@@ -37,10 +37,11 @@ export const WeatherComponent = ({
       ,
       ['for', 'to'],
       { bank: sentenceNickname, sectionIndex: drinkCount },
-      'it feels like',
+      ['it feels like', `it's`],
     ]);
   };
 
+  const [noLocation] = useGeneratedPhrase('', () => getRandomPhraseFromSection(locationCannotLocate), []);
   const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drinkCount, tempUnit, weatherData]);
 
   return (
@@ -48,7 +49,7 @@ export const WeatherComponent = ({
       <div className={Style.weatherContent}>
         <div className={Style.locationHolder}>
           <div className={Style.location}>
-            {weatherData?.name || 'Searching for location...'}
+            {weatherData?.name || noLocation}
           </div>
         </div>
 

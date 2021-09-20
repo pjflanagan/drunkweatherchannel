@@ -62,8 +62,9 @@ const MainComponent: FC = () => {
     // TODO: GIF SEARCH MODIFIERS
     if (!isEmpty(weatherData)) {
       const weatherDescription = weatherData.weather[0].description;
+      const gifSearchModifier = getRandomPhraseFromSection(['weather', 'party', 'drunk', 'drink', 'sky']);
       (async function () {
-        const searchGifList = await API.searchGiphy(`weather ${weatherDescription}`);
+        const searchGifList = await API.searchGiphy(`${gifSearchModifier} ${weatherDescription}`);
         const newGifList = [...gifList, ...searchGifList];
         setGifList(newGifList);
       })();
