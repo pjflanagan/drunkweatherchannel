@@ -23,7 +23,7 @@ export const blerbAddDrink: PhraseBank = [
   // 2
   [
     `Why you babysittin' only 2 or 3 shots?`,
-    'Gettin tipsy...',
+    `Gettin' tipsy...`,
     `Let's get this party started!`
   ],
   // 3
