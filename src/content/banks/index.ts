@@ -1,4 +1,4 @@
-export * from './blerb';
+export * from './blurb';
 export * from './error';
 export * from './sentence';
 export * from './drinks';

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
+import classNames from 'classnames';
 
-import { Background } from 'src/elements';
+import { Time } from 'src/helpers';
+import { Background, Cover } from 'src/elements';
+
+import * as Style from './style.module.scss';
 
 const getRandomImage = (gifList) => {
   const imageIndex = Math.floor(Math.random() * gifList.length);
@@ -11,6 +15,7 @@ const getRandomImage = (gifList) => {
 export const GifSlideshow = ({
   gifList
 }) => {
+  const timeLabel = Time.getTimeLabel();
   const [currentImage, setCurrentImage] = useState(null);
 
   useEffect(() => {
@@ -33,13 +38,17 @@ export const GifSlideshow = ({
   if (isEmpty(gifList) || isEmpty(currentImage)) {
     return (
       // TODO: Background show display gif, temperature, and time of day
-      // using 3 different backgrounds, data should be out here
-      // the element should not calculate anything
-      <Background />
+      <Background>
+        <Cover zIndex={1} className={classNames(Style.coverTimeOfDay, Style[timeLabel])} />
+      </Background>
     );
   }
 
   return (
-    <Background img={currentImage.url} />
-  )
+    <Background>
+      <Cover zIndex={2} className={classNames(Style.coverTimeOfDay, Style[timeLabel])} />
+      <Cover zIndex={1} img={currentImage.url} />
+    </Background>
+  );
 }
+

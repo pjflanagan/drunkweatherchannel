@@ -7,13 +7,13 @@ import {
   getRandomPhraseFromSection,
   getRandomPhraseFromBank,
   errorUnableToFetchWeather,
-  blerbTemperatureConversion,
+  blurbTemperatureConversion,
 } from 'src/content';
 import { Container } from 'src/elements';
 
-import { BlerbComponent } from './blerbComponent';
+import { BlerbComponent } from './blurbComponent';
 import { WeatherComponent } from './weatherComponent';
-import { DrinkCounter } from './drinkCounter';
+import { ActionBar } from './actionBar';
 import { GifSlideshow } from './gifSlideshow';
 
 const MainComponent: FC = () => {
@@ -39,7 +39,7 @@ const MainComponent: FC = () => {
       }
     })();
     setTempUnit(newTempUnit);
-    setPhrase(getRandomPhraseFromBank(blerbTemperatureConversion, newTempUnit));
+    setPhrase(getRandomPhraseFromBank(blurbTemperatureConversion, newTempUnit));
   }
 
   useEffect(() => {
@@ -83,7 +83,8 @@ const MainComponent: FC = () => {
         <BlerbComponent>
           {phrase}
         </BlerbComponent>
-        <DrinkCounter
+        <ActionBar
+          coords={coords}
           setDrinkCount={setDrinkCount}
           drinkCount={drinkCount}
           setPhrase={setPhrase}

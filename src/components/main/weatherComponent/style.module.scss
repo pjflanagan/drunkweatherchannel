@@ -8,6 +8,16 @@
     top: 50%;
     transform: translateY(-50%);
 
+    .weather-icon-holder {
+      height: 100px;
+
+      img {
+        position: relative;
+        left: 50%;
+        margin-left: -50px;
+      }
+    }
+
     .location-holder {
       .location {
         text-align: center;

@@ -1,3 +1,5 @@
+import { makeArray } from 'src/helpers';
+
 import { PhraseBank } from '..';
 
 const drinkPluralWordBank = [
@@ -6,6 +8,14 @@ const drinkPluralWordBank = [
   'shots',
   'bottles',
   'standard pours',
+];
+
+const manyDrinks = [
+  ['SO MANY', 'drinks'],
+  ['A LOT', 'of booze'],
+  ['WOAH', 'bottles'],
+  ...drinkPluralWordBank.map(word => ['LOST COUNT', word]),
+  ...drinkPluralWordBank.map(word => ['ELEVENTY', word]),
 ];
 
 export const drinksCounter: PhraseBank = [
@@ -32,6 +42,7 @@ export const drinksCounter: PhraseBank = [
   // 3
   [
     ['1', 'pull from a handle'],
+    ['1 ', 'playthrough of Thunderstruck'],
     ...drinkPluralWordBank.map(word => ['3', word]),
   ],
   // 4
@@ -43,18 +54,19 @@ export const drinksCounter: PhraseBank = [
   ],
   // 5
   [
+    ['1', 'flight of strong beers'],
     ...drinkPluralWordBank.map(word => ['5', word]),
-    ['1', 'flight of strong beers']
   ],
   // 6
   [
     ['1', 'six pack'],
+    ['1', 'fishbowl'],
     ...drinkPluralWordBank.map(word => ['6', word]),
   ],
   // 7
   [
+    ['1', 'brewery tour'],
     ...drinkPluralWordBank.map(word => ['7', word]),
-    ['1', 'brewery tour']
   ],
   // 8
   [
@@ -64,8 +76,9 @@ export const drinksCounter: PhraseBank = [
   ],
   // 9
   [
-    ...drinkPluralWordBank.map(word => ['9', word]),
     ['1', 'half of a fifth'],
+    ['1', 'fifth and a friend'],
+    ...drinkPluralWordBank.map(word => ['9', word]),
   ],
   // 10
   [
@@ -87,11 +100,17 @@ export const drinksCounter: PhraseBank = [
     ...drinkPluralWordBank.map(word => ['13', word]),
     ...drinkPluralWordBank.map(word => [`A baker's dozen`, word]),
   ],
-  // Many
+  // 14 - 20
+  ...makeArray(7, manyDrinks),
+  // 21
   [
-    ['MANY', 'drinks'],
-    ['A LOT', 'of booze'],
     ['1', 'twenty-first birthday party'],
+  ],
+  // 22 - 29
+  ...makeArray(8, manyDrinks),
+  [
     ['1', '30-rack'],
-  ]
+  ],
+  // MORE
+  manyDrinks
 ]

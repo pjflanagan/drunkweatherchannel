@@ -2,7 +2,7 @@
   "name": "weather-drunk",
   "version": "1.0.0",
   "private": true,
-  "description": "Weather Drunk",
+  "description": "The Drunk Weather Channel",
   "author": "pjflanagan",
   "keywords": [
     "gatsby"
@@ -13,7 +13,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "netlify": "netlify dev"
+    "netlify": "netlify dev",
+    "test": "ts-mocha ./src/**/*.ts ./test/**/*.test.ts"
   },
   "dependencies": {
     "@netlify/functions": "^0.7.2",
@@ -30,6 +31,9 @@
     "sass-loader": "^12.1.0"
   },
   "devDependencies": {
-    "gatsby-plugin-root-import": "^2.0.7"
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^9.0.0",
+    "gatsby-plugin-root-import": "^2.0.7",
+    "ts-mocha": "^8.0.0"
   }
 }

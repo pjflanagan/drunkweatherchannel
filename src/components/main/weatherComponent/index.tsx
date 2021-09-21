@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
 import { Weather } from 'src/helpers';
-import { makeSentence, getRandomPhraseFromSection, sentenceNickname, getSentenceTime, sentenceConjunctions, locationCannotLocate } from 'src/content';
+import {
+  makeSentence,
+  getRandomPhraseFromSection,
+  sentenceNickname,
+  getSentenceTime,
+  sentenceConjunctions,
+  locationCannotLocate,
+  sentenceWeatherDescription
+} from 'src/content';
 import { useGeneratedPhrase } from 'src/hooks';
 
 import * as Style from './style.module.scss';
@@ -28,8 +36,11 @@ export const WeatherComponent = ({
       ['Right now', 'Outside'],
       [`it's`, `it is`, 'the weather is'],
       `${actualTemp}${displayTempUnit}`,
-      // 'and',
-      // TODO: clear, overcast, breezy, windy, cloudy, raining, snowing
+      ['and', `with`],
+      {
+        bank: sentenceWeatherDescription,
+        sectionIndex: weatherData?.weather[0]?.id
+      },
       {
         bank: sentenceConjunctions,
         sectionIndex: (Math.abs(actualTempKelvin - drunkFeelsLikeKelvin) > 3) ? 'but' : 'and'
@@ -43,10 +54,16 @@ export const WeatherComponent = ({
 
   const [noLocation] = useGeneratedPhrase('', () => getRandomPhraseFromSection(locationCannotLocate), []);
   const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drinkCount, tempUnit, weatherData]);
+  const img = weatherData?.weather[0]?.icon;
 
   return (
     <div className={Style.weather}>
       <div className={Style.weatherContent}>
+
+        <div className={Style.weatherIconHolder}>
+          {weatherData && <img src={`//openweathermap.org/img/wn/${img}@2x.png`} />}
+        </div>
+
         <div className={Style.locationHolder}>
           <div className={Style.location}>
             {weatherData?.name || noLocation}

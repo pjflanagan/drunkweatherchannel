@@ -1,14 +1,16 @@
 
 import { PhraseBank, PhraseBankSection } from '..';
 
-export const blerbWelcome: PhraseBankSection = [
+export const blurbWelcome: PhraseBankSection = [
   'Welcome!',
   'Howdy!',
   'What can I do you for?',
-  `Sir, have you been drinking?`
+  `Sir, have you been drinking?`,
+  'Sup?',
+  'Yo.'
 ];
 
-export const blerbAddDrink: PhraseBank = [
+export const blurbAddDrink: PhraseBank = [
   // 0
   [
     `Stone cold sober.`,
@@ -76,7 +78,7 @@ export const blerbAddDrink: PhraseBank = [
   // many
 ];
 
-export const blerbRemoveDrink: PhraseBankSection = [
+export const blurbRemoveDrink: PhraseBankSection = [
   `If you lost count, you're probably drunk.`,
   `Did you throw up?`,
   `Sobering up? Go fix that.`,
@@ -84,7 +86,7 @@ export const blerbRemoveDrink: PhraseBankSection = [
   `Bartender, I'll have one negative drink.`
 ];
 
-export const blerbTemperatureConversion: PhraseBank = {
+export const blurbTemperatureConversion: PhraseBank = {
   k: [
     `Okay Mr. Scientist.`,
     `We talk science, this is science.`,

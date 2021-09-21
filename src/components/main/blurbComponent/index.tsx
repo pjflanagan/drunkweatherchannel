@@ -7,14 +7,14 @@ type BlerbComponentProps = {
 }
 
 export const BlerbComponent = ({
-  children: blerb
+  children: blurb
 }: BlerbComponentProps) => {
   const [animationKey, setAnimationKey] = useState<string>('key-0');
 
   useEffect(() => {
-    const newKey = `key-${Math.random()}-${blerb.replace(' ', '').substring(0, 5)}`;
+    const newKey = `key-${Math.random()}-${blurb.replace(' ', '').substring(0, 5)}`;
     setAnimationKey(newKey);
-  }, [blerb]);
+  }, [blurb]);
 
   return (
     <div className={Style.phraseHolder}>
@@ -23,7 +23,7 @@ export const BlerbComponent = ({
         className={Style.phrase}
       // onTransitionEnd={onTransitionEnd}
       >
-        {blerb}
+        {blurb}
       </div>
     </div>
   );
