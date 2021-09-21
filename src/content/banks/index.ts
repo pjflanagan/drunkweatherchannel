@@ -3,3 +3,4 @@ export * from './error';
 export * from './sentence';
 export * from './drinks';
 export * from './location';
+export * from './search';

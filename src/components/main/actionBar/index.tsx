@@ -12,7 +12,7 @@ export const ActionBar = ({
   coords,
   drinkCount,
   setDrinkCount,
-  setPhrase
+  setBlurb
 }) => {
 
   return (
@@ -24,7 +24,7 @@ export const ActionBar = ({
           <DrinkCounterBar
             drinkCount={drinkCount}
             setDrinkCount={setDrinkCount}
-            setPhrase={setPhrase}
+            setBlurb={setBlurb}
           />
       }
     </div>

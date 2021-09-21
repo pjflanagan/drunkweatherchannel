@@ -15,7 +15,11 @@ export type PhraseBank = PhraseBankLabeled | PhraseBankIndexed;
 
 // Sentences
 
-type PhraseBankSectionIndexSearch = { bank: PhraseBank, sectionIndex: PhraseBankSectionIndex };
+type PhraseBankSectionIndexSearch = {
+  exclude?: boolean,
+  bank: PhraseBank,
+  sectionIndex: PhraseBankSectionIndex
+};
 type GeneratedSentencePart = PhraseBankSectionIndexSearch | string | PhraseBankSection;
 export type GeneratedSentenceStructure = GeneratedSentencePart[];
 
@@ -50,7 +54,10 @@ export const makeSentence = (structure: GeneratedSentenceStructure): string => {
     } else if (Array.isArray(sentencePart)) {
       return getRandomPhraseFromSection(sentencePart);
     }
-    const { bank, sectionIndex } = sentencePart as PhraseBankSectionIndexSearch;
+    const { exclude, bank, sectionIndex } = sentencePart as PhraseBankSectionIndexSearch;
+    if (exclude) {
+      return '';
+    }
     return getRandomPhraseFromBank(bank, sectionIndex);
   }).join(' ');
 }

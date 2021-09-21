@@ -37,7 +37,6 @@ export const GifSlideshow = ({
 
   if (isEmpty(gifList) || isEmpty(currentImage)) {
     return (
-      // TODO: Background show display gif, temperature, and time of day
       <Background>
         <Cover zIndex={1} className={classNames(Style.coverTimeOfDay, Style[timeLabel])} />
       </Background>
@@ -46,7 +45,10 @@ export const GifSlideshow = ({
 
   return (
     <Background>
+      {/* Time of day cover */}
       <Cover zIndex={2} className={classNames(Style.coverTimeOfDay, Style[timeLabel])} />
+      {/* TODO: weather canvas? */}
+      {/* gif background */}
       <Cover zIndex={1} img={currentImage.url} />
     </Background>
   );

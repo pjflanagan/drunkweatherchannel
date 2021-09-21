@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { getRandomPhraseFromBank, getRandomPhraseFromSection, drinksCounter, blurbAddDrink, blurbRemoveDrink } from 'src/content';
-import { useGeneratedPhrase } from "src/hooks";
-import { Bar, BarSection } from 'src/elements';
+import { Bar, BarSection } from 'elements';
 
 import * as Style from './style.module.scss';
 

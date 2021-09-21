@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 import * as Style from './style.module.scss';
 
-type BlerbComponentProps = {
+type BlurbComponentProps = {
   children: string
 }
 
-export const BlerbComponent = ({
+export const BlurbComponent = ({
   children: blurb
-}: BlerbComponentProps) => {
+}: BlurbComponentProps) => {
   const [animationKey, setAnimationKey] = useState<string>('key-0');
 
   useEffect(() => {

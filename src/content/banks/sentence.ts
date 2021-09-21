@@ -1,6 +1,5 @@
 
-import { PhraseBankSection } from 'content/contentBankHelpers';
-import { Time, makeArray } from 'src/helpers';
+import { Time, makeArray } from 'helpers';
 
 import { PhraseGetter, PhraseBank, getRandomPhraseFromBank } from '..';
 
@@ -39,6 +38,7 @@ export const getSentenceTime: PhraseGetter = () => {
   return getRandomPhraseFromBank(sentenceTime, Time.getTimeLabel());
 }
 
+// it's <temp> <sentenceWeatherDescription>
 export const sentenceWeatherDescription: PhraseBank = {
   // thunderstorm
   200: [`a thunderstorm and light rain`],
@@ -73,35 +73,35 @@ export const sentenceWeatherDescription: PhraseBank = {
   522: [`a heavy intensity shower rain`],
   531: [`a ragged shower rain`],
   // snow
-  600: [`lightly snowing`],
-  601: [`snowing`],
-  602: [`heavy snow`],
-  611: [`sleet`],
-  612: [`a light shower sleet`],
-  613: [`a sleet shower`],
-  615: [`a light rain and snow`],
-  616: [`rain and snow`],
-  620: [`a light shower snow`],
-  621: [`a snow shower`],
-  622: [`a heavy snow shower`],
+  600: [`and lightly snowing`],
+  601: [`and snowy`, `and snowing`],
+  602: [`with heavy snow`],
+  611: [`with sleet`],
+  612: [`with light sleet showers`],
+  613: [`with sleet showers`],
+  615: [`with a light rain and snow`],
+  616: [`with rain and snow`],
+  620: [`with a light snow shower`],
+  621: [`with snow showers`],
+  622: [`with heavy snow showers`],
   // atmosphere
-  701: [`misty`],
-  711: [`smokey`],
-  721: [`hazy`],
-  731: [`sand and dust whirls`],
-  741: [`foggy`],
-  751: [`sandy`],
-  761: [`dusty`],
-  762: [`volcanic ash`],
-  771: [`squalls`],
-  781: [`a tornado`],
+  701: [`and misty`],
+  711: [`and smokey`],
+  721: [`and hazy`],
+  731: [`with sand and dust whirls`],
+  741: [`and foggy`],
+  751: [`and sandy`],
+  761: [`and dusty`],
+  762: [`with volcanic ash`],
+  771: [`with squalls`],
+  781: [`with a tornado`],
   // clear
-  800: [`clear skies`],
+  800: [`with clear skies`, `and clear`],
   // clouds
-  801: [`a few clouds`],
-  802: [`scattered clouds`],
-  803: [`broken clouds`],
-  804: [`overcast`],
+  801: [`with a few clouds`],
+  802: [`with scattered clouds`, `and partly cloudy`],
+  803: [`with broken clouds`, `and cloudy`],
+  804: [`and overcast`],
 };
 
 

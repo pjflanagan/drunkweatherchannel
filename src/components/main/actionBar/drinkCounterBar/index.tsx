@@ -9,7 +9,7 @@ import * as Style from './style.module.scss';
 export const DrinkCounterBar = ({
   drinkCount,
   setDrinkCount,
-  setPhrase
+  setBlurb
 }) => {
 
   const makeCounterLabel = () => {
@@ -23,7 +23,7 @@ export const DrinkCounterBar = ({
   );
 
   const addDrink = () => {
-    setPhrase(getRandomPhraseFromBank(blurbAddDrink, drinkCount + 1));
+    setBlurb(getRandomPhraseFromBank(blurbAddDrink, drinkCount + 1));
     if (drinkCount === drinksCounter.length - 1) {
       resetCounterLabel();
       return;
@@ -32,7 +32,7 @@ export const DrinkCounterBar = ({
   }
 
   const removeDrink = () => {
-    setPhrase(getRandomPhraseFromSection(blurbRemoveDrink));
+    setBlurb(getRandomPhraseFromSection(blurbRemoveDrink));
     if (drinkCount === 0) {
       resetCounterLabel();
       return;

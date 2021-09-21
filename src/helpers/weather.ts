@@ -64,7 +64,7 @@ export const Weather = {
         return 'hot';
     }
   },
-  calculateFeelsLike: (actualFeelsLikeKelvin, drinkCount) => {
+  calculateFeelsLike: (actualFeelsLikeKelvin: number, drinkCount: number) => {
     if (drinkCount === 0) {
       // if no drinks, return original
       return actualFeelsLikeKelvin;

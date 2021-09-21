@@ -1,17 +1,23 @@
 import React, { FC, useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
-import { useCoordinates } from 'src/hooks';
-import { API, TemperatureUnit } from 'src/helpers';
+import { API, TemperatureUnit, Time } from 'helpers';
 import {
   getRandomPhraseFromSection,
   getRandomPhraseFromBank,
   errorUnableToFetchWeather,
   blurbTemperatureConversion,
-} from 'src/content';
-import { Container } from 'src/elements';
+  makeSentence,
+  searchWeather,
+  searchTime,
+  blurbWelcome,
+} from 'content';
+import {
+  useCoordinates,
+} from 'hooks';
+import { Container } from 'elements';
 
-import { BlerbComponent } from './blurbComponent';
+import { BlurbComponent } from './blurbComponent';
 import { WeatherComponent } from './weatherComponent';
 import { ActionBar } from './actionBar';
 import { GifSlideshow } from './gifSlideshow';
@@ -22,7 +28,7 @@ const MainComponent: FC = () => {
   const [tempUnit, setTempUnit] = useState<TemperatureUnit>('f');
   const [drinkCount, setDrinkCount] = useState<number>(0);
   const [weatherData, setWeatherData] = useState(null);
-  const [phrase, setPhrase] = useState('Welcome!');
+  const [blurb, setBlurb] = useState('')
   const [gifList, setGifList] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -39,8 +45,12 @@ const MainComponent: FC = () => {
       }
     })();
     setTempUnit(newTempUnit);
-    setPhrase(getRandomPhraseFromBank(blurbTemperatureConversion, newTempUnit));
+    setBlurb(getRandomPhraseFromBank(blurbTemperatureConversion, newTempUnit));
   }
+
+  useEffect(() => {
+    setBlurb(getRandomPhraseFromSection(blurbWelcome));
+  }, []);
 
   useEffect(() => {
     if (!isEmpty(coords) && isEmpty(weatherData) && isEmpty(errorMessage)) {
@@ -59,12 +69,20 @@ const MainComponent: FC = () => {
   }, [coords]);
 
   useEffect(() => {
-    // TODO: GIF SEARCH MODIFIERS
-    if (!isEmpty(weatherData)) {
-      const weatherDescription = weatherData.weather[0].description;
-      const gifSearchModifier = getRandomPhraseFromSection(['weather', 'party', 'drunk', 'drink', 'sky']);
+    if (weatherData) {
+      const gifSearch = makeSentence([
+        {
+          bank: searchTime,
+          sectionIndex: Time.getTimeLabel()
+        },
+        {
+          bank: searchWeather,
+          sectionIndex: weatherData.weather[0].id
+        },
+      ]);
+      console.log(gifSearch);
       (async function () {
-        const searchGifList = await API.searchGiphy(`${gifSearchModifier} ${weatherDescription}`);
+        const searchGifList = await API.searchGiphy(gifSearch);
         const newGifList = [...gifList, ...searchGifList];
         setGifList(newGifList);
       })();
@@ -80,14 +98,14 @@ const MainComponent: FC = () => {
           tempUnit={tempUnit}
           drinkCount={drinkCount}
         />
-        <BlerbComponent>
-          {phrase}
-        </BlerbComponent>
+        <BlurbComponent>
+          {blurb}
+        </BlurbComponent>
         <ActionBar
           coords={coords}
           setDrinkCount={setDrinkCount}
           drinkCount={drinkCount}
-          setPhrase={setPhrase}
+          setBlurb={setBlurb}
         />
       </Container>
       <GifSlideshow gifList={gifList} />

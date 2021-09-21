@@ -36,8 +36,8 @@ export const WeatherComponent = ({
       ['Right now', 'Outside'],
       [`it's`, `it is`, 'the weather is'],
       `${actualTemp}${displayTempUnit}`,
-      ['and', `with`],
       {
+        exclude: !weatherData,
         bank: sentenceWeatherDescription,
         sectionIndex: weatherData?.weather[0]?.id
       },
