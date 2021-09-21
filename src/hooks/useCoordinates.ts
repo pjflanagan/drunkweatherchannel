@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import { Coordinates } from 'src/helpers';
+import { Coordinates } from 'helpers';
 
 const useCoordinates = () => {
 
-  const [coords, setCoords] = useState<Coordinates>(null);
+  const [coords, setCoords] = useState<Coordinates | null>(null);
 
   useEffect(() => {
     if (!coords) {

@@ -1,8 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
-import { API, TemperatureUnit, Time } from 'helpers';
+import { API, TemperatureUnit, Time, WeatherData, GifList } from 'helpers';
 import {
+  PhraseBankContent,
   getRandomPhraseFromSection,
   getRandomPhraseFromBank,
   errorUnableToFetchWeather,
@@ -27,10 +28,10 @@ const MainComponent: FC = () => {
   const coords = useCoordinates();
   const [tempUnit, setTempUnit] = useState<TemperatureUnit>('f');
   const [drinkCount, setDrinkCount] = useState<number>(0);
-  const [weatherData, setWeatherData] = useState(null);
-  const [blurb, setBlurb] = useState('')
-  const [gifList, setGifList] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [weatherData, setWeatherData] = useState<WeatherData>(null);
+  const [blurb, setBlurb] = useState<PhraseBankContent>('')
+  const [gifList, setGifList] = useState<GifList>([]);
+  const [errorMessage, setErrorMessage] = useState<PhraseBankContent>('');
 
   const cycleTempUnit = () => {
     const newTempUnit = (() => {
@@ -83,7 +84,7 @@ const MainComponent: FC = () => {
       console.log(gifSearch);
       (async function () {
         const searchGifList = await API.searchGiphy(gifSearch);
-        const newGifList = [...gifList, ...searchGifList];
+        const newGifList: GifList = [...gifList, ...searchGifList];
         setGifList(newGifList);
       })();
     }

@@ -56,6 +56,7 @@ export const DrinkCounterBar = ({
       </BarSection>
       <BarSection
         onClick={addDrink}
+        className={Style.button}
       >
         {'+'}
       </BarSection>

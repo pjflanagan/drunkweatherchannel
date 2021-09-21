@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { PhraseBankContent } from 'src/content';
+import { PhraseBankContent } from 'content';
 
 const useGeneratedPhrase = (
   init: PhraseBankContent,

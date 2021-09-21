@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { MainComponent, HeadComponent } from 'src/components';
+import { MainComponent, HeadComponent } from 'components';
 
 import './reset.scss';
 import './style.scss';

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 
-import { Weather } from 'src/helpers';
+import { Weather, TemperatureUnit, WeatherData } from 'helpers';
 import {
   makeSentence,
   getRandomPhraseFromSection,
@@ -10,17 +10,24 @@ import {
   sentenceConjunctions,
   locationCannotLocate,
   sentenceWeatherDescription
-} from 'src/content';
-import { useGeneratedPhrase } from 'src/hooks';
+} from 'content';
+import { useGeneratedPhrase } from 'hooks';
 
 import * as Style from './style.module.scss';
+
+type WeatherComponentProps = {
+  weatherData: WeatherData;
+  cycleTempUnit: () => void;
+  tempUnit: TemperatureUnit;
+  drinkCount: number;
+}
 
 export const WeatherComponent = ({
   weatherData,
   cycleTempUnit,
   tempUnit,
   drinkCount
-}) => {
+}: WeatherComponentProps) => {
 
   const actualTempKelvin = weatherData?.main?.temp || 0;
   const actualFeelsLikeKelvin = weatherData?.main?.feels_like || 0;
@@ -85,11 +92,11 @@ export const WeatherComponent = ({
           </div>
         </div>
 
-        <div className={Style.sentenceHolder}>
-          {/* <div className={Style.sentence}>
+        {/* <div className={Style.sentenceHolder}>
+          <div className={Style.sentence}>
             {!!weatherData && 'so, bring a jacket.'}
-          </div> */}
-        </div>
+          </div>
+        </div> */}
       </div>
     </div>
   );

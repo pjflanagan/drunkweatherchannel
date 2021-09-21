@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import { PhraseBankContent } from 'content'
+
 import * as Style from './style.module.scss';
 
 type BlurbComponentProps = {
-  children: string
+  children: PhraseBankContent
 }
 
 export const BlurbComponent = ({
@@ -12,7 +14,7 @@ export const BlurbComponent = ({
   const [animationKey, setAnimationKey] = useState<string>('key-0');
 
   useEffect(() => {
-    const newKey = `key-${Math.random()}-${blurb.replace(' ', '').substring(0, 5)}`;
+    const newKey = `key-${new Date().getTime()}`;
     setAnimationKey(newKey);
   }, [blurb]);
 

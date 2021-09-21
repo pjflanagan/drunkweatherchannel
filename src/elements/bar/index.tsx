@@ -3,9 +3,13 @@ import classNames from "classnames";
 
 import * as Style from './style.module.scss';
 
+type BarProps = {
+  children: React.ReactElement<BarSectionProps> | React.ReactElement<BarSectionProps>[]
+}
+
 export const Bar = ({
   children
-}) => {
+}: BarProps) => {
   return (
     <div className={Style.bar}>
       {children}
@@ -26,7 +30,7 @@ export const BarSection = ({
 }: BarSectionProps) => {
   const className = classNames(Style.section, {
     [Style.button]: !!onClick,
-    [classNameProp]: !!classNameProp
+    [classNameProp as string]: !!classNameProp
   });
   return (
     <div

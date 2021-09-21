@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import * as Style from './style.module.scss';
 
 type BackgroundProps = {
-  children: React.ReactElement<CoverProps>[]
+  children: React.ReactElement<CoverProps> | React.ReactElement<CoverProps>[]
 }
 
 export const Background = ({
