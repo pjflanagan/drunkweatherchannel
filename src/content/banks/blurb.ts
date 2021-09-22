@@ -32,12 +32,13 @@ export const blurbAddDrink: PhraseBank = [
   [
     `Why you babysittin' only 2 or 3 shots?`,
     `Let's get it started in here!`,
-    `One bourbon, one scotch, one beer.`
+    `One bourbon, one scotch, one beer.`,
+    `Someone's 3'st-y`
   ],
   // 4
   [
     `1 tequila, 2 tequila, 3 tequila, FLOOR!`,
-    `We should hang out more often`,
+    `We should hang out more often.`,
   ],
   // 5
   [
@@ -70,12 +71,11 @@ export const blurbAddDrink: PhraseBank = [
     'Moonshine mantle.',
     'God be with you.'
   ],
-  // 10
+  // 10 - manny
   [
-    'Certainly this is the last one.'
+    `Certainly this is the last one.`,
+    `Future you told us to tell you to stop, fuck that guy.`,
   ],
-  // 11
-  // many
 ];
 
 export const blurbRemoveDrink: PhraseBankSection = [

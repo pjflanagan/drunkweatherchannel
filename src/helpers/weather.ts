@@ -1,7 +1,7 @@
-// import { makeArray } from ".";
+
+// Units and Conversions
 
 export type TemperatureUnit = 'f' | 'c' | 'k';
-
 type Kelvin = number;
 type Fahrenheit = number;
 
@@ -9,25 +9,46 @@ const convertToFahrenheit = (kelvin: Kelvin): Fahrenheit => ((kelvin - 273.15) *
 
 const convertFahrenheitToKelvin = (f: Fahrenheit): Kelvin => ((f - 32) / 1.8) + 273.15;
 
-// actualFeelsLikeF: [ startFeelingWarmDrink, maxDrunkFeelsLikeTempDeltaF ]
-// const weatherFormulaMap = [
-//   // 0 and less - 10
-//   ...makeArray(11, [9, 8]),
-//   // 11 - 20
-//   ...makeArray(10, [8, 9]),
-//   // 21 - 30
-//   ...makeArray(10, [7, 10]),
-//   // 31 - 40
-//   ...makeArray(10, [7, 11]),
-//   // 41 - 50
-//   ...makeArray(10, [6, 13]),
-//   // 51 - 60
-//   ...makeArray(10, [6, 15]),
-//   // 61 - 70
-//   ...makeArray(10, [5, 13]),
-//   // 71 - 80
-//   ...makeArray(10, [4, 9]),
-// ];
+// Drunk Feels Like
+
+export const IDEAL_TEMP_F = 86;
+
+type StartFeelingWarmDrink = number;
+type MaxDrunkFeelsLikeTempDeltaF = number;
+type DrunkFeelsLikeFormulaConstantsTuple = [StartFeelingWarmDrink, MaxDrunkFeelsLikeTempDeltaF];
+
+const getDrunkFeelsLikeFormulaConstants = (actualFeelsLikeF: Fahrenheit): DrunkFeelsLikeFormulaConstantsTuple => {
+  switch (true) {
+    case actualFeelsLikeF < 0:
+    case actualFeelsLikeF < 10:
+      return [9, 8];
+    case actualFeelsLikeF < 20:
+      return [8, 9];
+    case actualFeelsLikeF < 30:
+      return [7, 10];
+    case actualFeelsLikeF < 40:
+      return [7, 11];
+    case actualFeelsLikeF < 50:
+      return [6, 13];
+    case actualFeelsLikeF < 60:
+      return [6, 15];
+    case actualFeelsLikeF < 70:
+      return [5, 13];
+    case actualFeelsLikeF < 80:
+      return [4, 9];
+    case actualFeelsLikeF < IDEAL_TEMP_F: // 86
+      return [3, 6];
+    default:
+      return [0, 0];
+  }
+}
+
+const calculateDrunkFeelsLikeF = (actualFeelsLikeF: Fahrenheit, drinkCount: number): Fahrenheit => {
+  const [minDrink, tempDelta] = getDrunkFeelsLikeFormulaConstants(actualFeelsLikeF);
+  const multiplier = tempDelta / Math.PI;
+  const constant = tempDelta / 2 + actualFeelsLikeF;
+  return Math.floor(multiplier * Math.atan(drinkCount - minDrink) + constant);
+}
 
 export const Weather = {
   convertTemperature: (kelvin: Kelvin, unit: TemperatureUnit): number => {
@@ -73,14 +94,16 @@ export const Weather = {
       return actualFeelsLikeKelvin;
     }
     const actualFeelsLikeF: Fahrenheit = convertToFahrenheit(actualFeelsLikeKelvin);
-    if (actualFeelsLikeF > 86) {
-      // if it is warmer than 86, then just return original
+    if (actualFeelsLikeF > IDEAL_TEMP_F) {
+      // if it is warmer than IDEAL_TEMP_F, then just return original
       return actualFeelsLikeKelvin;
     }
-    const drunkFeelsLikeF: Fahrenheit = actualFeelsLikeF + 6 * Math.atan((drinkCount - 2) / 6) + 2;
-    if (drunkFeelsLikeF > 86 && actualFeelsLikeF < 86) {
-      // if the drunk feels like is higher than 86, return 86
-      return convertFahrenheitToKelvin(86);
+    const drunkFeelsLikeF: Fahrenheit = calculateDrunkFeelsLikeF(actualFeelsLikeF, drinkCount);
+    if (drunkFeelsLikeF > IDEAL_TEMP_F && actualFeelsLikeF < IDEAL_TEMP_F) {
+      // if the drunk feels like is higher than IDEAL_TEMP_F
+      // and the actual temp is less than ideal temp, return IDEAL_TEMP_F
+      // we will never get so drunk it gets hotter than ideal
+      return convertFahrenheitToKelvin(IDEAL_TEMP_F);
     }
     return convertFahrenheitToKelvin(drunkFeelsLikeF);
   }

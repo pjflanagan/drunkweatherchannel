@@ -107,6 +107,7 @@ export const drinksCounter: PhraseBank = [
   // 21
   [
     ['1', 'twenty-first birthday party'],
+    ['1', 'twenty-first b-day'],
   ],
   // 22 - 29
   ...makeArray(8, manyDrinks),

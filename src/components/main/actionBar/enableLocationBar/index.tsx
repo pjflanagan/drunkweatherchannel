@@ -13,6 +13,7 @@ export const EnableLocationBar = () => {
     switch (permissionState) {
       case 'denied':
         return 'Location disabled, please enable';
+      case 'unavailable':
       case 'prompt':
         return 'Please enable location';
       case 'granted':

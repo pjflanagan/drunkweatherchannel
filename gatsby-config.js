@@ -16,6 +16,19 @@ module.exports = {
         ],
         display: 'swap'
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `The Drunk Weather Channel`,
+        short_name: `Weather Drunk`,
+        start_url: `/`,
+        background_color: `#024e98`,
+        theme_color: `#024e98`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
+    `gatsby-plugin-offline`
   ],
 };

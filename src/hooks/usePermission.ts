@@ -16,7 +16,7 @@ export const usePermission = (permission: PermissionName): string => {
     if (navigator.permissions) {
       handlePermission();
     } else {
-      setState('prompt');
+      setState('unavailable');
     }
   }, []);
 
