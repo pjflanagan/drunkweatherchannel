@@ -10,7 +10,7 @@ export type WeatherData = typeof openWeatherResponseData.list[0] | null;
 type GifResponseData = typeof gifResponseData;
 export type GifList = typeof gifResponseData.data | [];
 const gifImage = gifResponseData.data[0].images.downsized_large;
-export type GifImage = typeof gifImage | {};
+export type GifImage = typeof gifImage | null;
 
 const makeWeatherApiEndpoint = ({ lon, lat }: Coordinates): string => {
   return `/.netlify/functions/weather?lat=${lat}&lon=${lon}`;
@@ -33,4 +33,4 @@ export class API {
     const data: GifResponseData = await response.json();
     return data.data;
   }
-};
+}

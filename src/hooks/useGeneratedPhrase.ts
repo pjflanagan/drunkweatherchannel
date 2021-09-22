@@ -4,6 +4,7 @@ import { PhraseBankContent } from 'content';
 
 type UseGeneratedPhraseTuple = [PhraseBankContent, () => void]
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 const useGeneratedPhrase = (
   init: PhraseBankContent,
   generatePhrase: () => PhraseBankContent,

@@ -1,0 +1,41 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "spellcheck"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "spellcheck/spell-checker": [
+      1,
+      {
+        "comments": true,
+        "strings": true,
+        "identifiers": true,
+        "templates": true,
+        "lang": "en_US",
+        "skipWords": [
+          "gif",
+          "Giphy",
+          "netlify",
+          "lon",
+          "geo",
+          "fahrenheit"
+        ],
+        "skipIfMatch": [
+          "http://[^s]*",
+          "^[-\\w]+\/[-\\w\\.]+$"
+        ],
+        // "skipWordIfMatch": [
+        //   "^foobar.*$"
+        // ],
+        "minLength": 3
+      }
+    ]
+  }
+}

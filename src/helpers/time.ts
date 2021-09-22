@@ -1,7 +1,7 @@
 
 export type TimeOfDayLabel = 'morning' | 'afternoon' | 'evening' | 'night';
 
-export const getTimeLabelFromSunset = (now: Date, sunset: number) => {
+export const getTimeLabelFromSunset = (now: Date, sunset: number): TimeOfDayLabel => {
   const hour = now.getHours();
   const hoursUntilSunset = (new Date(sunset).getHours()) - hour;
   if (hour < 5 || hoursUntilSunset < -1)
@@ -31,7 +31,7 @@ const getTimeLabelFromTime = (now: Date): TimeOfDayLabel => {
 };
 
 export const Time = {
-  getTimeLabel(sunset?: number) {
+  getTimeLabel(sunset?: number): TimeOfDayLabel {
     const now = new Date();
     if (sunset) {
       return getTimeLabelFromSunset(now, sunset);

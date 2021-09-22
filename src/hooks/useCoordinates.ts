@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { Coordinates } from 'helpers';
 
-const useCoordinates = () => {
+const useCoordinates = (): Coordinates | null => {
 
   const [coords, setCoords] = useState<Coordinates | null>(null);
 

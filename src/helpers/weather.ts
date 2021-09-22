@@ -52,7 +52,7 @@ export const Weather = {
       case fahrenheit < 32:
         return 'freezing';
       case fahrenheit < 42:
-        return 'fridgid';
+        return 'frigid';
       case fahrenheit < 52:
         return 'cold';
       case fahrenheit < 62:

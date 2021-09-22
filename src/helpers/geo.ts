@@ -1,5 +1,5 @@
 
 export type Coordinates = {
-  lat: Number,
-  lon: Number
+  lat: number,
+  lon: number
 }
