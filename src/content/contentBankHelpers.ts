@@ -18,7 +18,7 @@ export type PhraseBank = PhraseBankLabeled | PhraseBankIndexed;
 
 // Sentences
 
-type PhraseBankSectionIndexSearch = {
+export type PhraseBankSectionIndexSearch = {
   exclude?: boolean,
   bank: PhraseBank,
   sectionIndex: PhraseBankSectionIndex

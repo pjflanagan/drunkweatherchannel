@@ -10,7 +10,8 @@ import {
   getSentenceTime,
   sentenceConjunctions,
   locationCannotLocate,
-  sentenceWeatherDescription
+  sentenceWeatherDescription,
+  PhraseBankSectionIndexSearch
 } from 'content';
 import { useGeneratedPhrase } from 'hooks';
 
@@ -50,12 +51,11 @@ export const WeatherComponent = ({
         exclude: !weatherData,
         bank: sentenceWeatherDescription,
         sectionIndex: weatherData?.weather[0]?.id
-      },
+      } as PhraseBankSectionIndexSearch,
       {
         bank: sentenceConjunctions,
         sectionIndex: (Math.abs(actualTempKelvin - drunkFeelsLikeKelvin) > 3) ? 'but' : 'and'
-      }
-      ,
+      },
       ['for', 'to'],
       { bank: sentenceNickname, sectionIndex: drinkCount },
       ['it feels like', `it's`],
