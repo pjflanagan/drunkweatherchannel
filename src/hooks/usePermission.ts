@@ -4,7 +4,7 @@ export const usePermission = (permission: PermissionName): string => {
   const [state, setState] = useState<string>('');
 
   const handlePermission = () => {
-    navigator.permissions.query({ name: permission }).then(result => {
+    navigator.permissions?.query({ name: permission }).then(result => {
       setState(result.state);
       result.onchange = () => {
         setState(result.state);
@@ -13,7 +13,11 @@ export const usePermission = (permission: PermissionName): string => {
   }
 
   useEffect(() => {
-    handlePermission();
+    if (navigator.permissions) {
+      handlePermission();
+    } else {
+      setState('prompt');
+    }
   }, []);
 
   return state;
