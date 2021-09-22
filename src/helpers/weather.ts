@@ -43,7 +43,7 @@ const getDrunkFeelsLikeFormulaConstants = (actualFeelsLikeF: Fahrenheit): DrunkF
   }
 }
 
-const calculateDrunkFeelsLikeF = (actualFeelsLikeF: Fahrenheit, drinkCount: number): Fahrenheit => {
+export const calculateDrunkFeelsLikeF = (actualFeelsLikeF: Fahrenheit, drinkCount: number): Fahrenheit => {
   const [minDrink, tempDelta] = getDrunkFeelsLikeFormulaConstants(actualFeelsLikeF);
   const multiplier = tempDelta / Math.PI;
   const constant = tempDelta / 2 + actualFeelsLikeF;

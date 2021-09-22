@@ -14,7 +14,7 @@ export const getTimeLabelFromSunset = (now: Date, sunset: number): TimeOfDayLabe
   return 'afternoon';
 }
 
-const getTimeLabelFromTime = (now: Date): TimeOfDayLabel => {
+export const getTimeLabelFromTime = (now: Date): TimeOfDayLabel => {
   const hour = now.getHours();
   switch (true) {
     case hour < 5:
