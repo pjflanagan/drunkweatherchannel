@@ -5,6 +5,7 @@ import { Weather, TemperatureUnit, WeatherData } from 'helpers';
 import {
   makeSentence,
   getRandomPhraseFromSection,
+  locationWaitingForWeather,
   sentenceNickname,
   getSentenceTime,
   sentenceConjunctions,
@@ -16,6 +17,7 @@ import { useGeneratedPhrase } from 'hooks';
 import * as Style from './style.module.scss';
 
 type WeatherComponentProps = {
+  waitingForLocation: boolean;
   weatherData: WeatherData;
   cycleTempUnit: () => void;
   tempUnit: TemperatureUnit;
@@ -23,6 +25,7 @@ type WeatherComponentProps = {
 }
 
 export const WeatherComponent = ({
+  waitingForLocation,
   weatherData,
   cycleTempUnit,
   tempUnit,
@@ -59,7 +62,15 @@ export const WeatherComponent = ({
     ]);
   };
 
-  const [noLocation] = useGeneratedPhrase('', () => getRandomPhraseFromSection(locationCannotLocate), []);
+  const setLocationPlaceholder = () => {
+    if (waitingForLocation) {
+      return getRandomPhraseFromSection(locationCannotLocate);
+    }
+    // waiting for weather to load
+    return getRandomPhraseFromSection(locationWaitingForWeather);
+  }
+
+  const [locationPlaceholder] = useGeneratedPhrase('', setLocationPlaceholder, []);
   const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drinkCount, tempUnit, weatherData]);
   const img = weatherData?.weather[0]?.icon;
 
@@ -73,7 +84,7 @@ export const WeatherComponent = ({
 
         <div className={Style.locationHolder}>
           <div className={Style.location}>
-            {weatherData?.name || noLocation}
+            {weatherData?.name || locationPlaceholder}
           </div>
         </div>
 

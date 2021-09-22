@@ -7,3 +7,10 @@ export const locationCannotLocate: PhraseBankSection = [
   'Where you at?',
   `Tryna find you bro...`,
 ];
+
+export const locationWaitingForWeather: PhraseBankSection = [
+  `Checking barometer...`,
+  `Smelling the wind...`,
+  `Holding finger in the air...`,
+  `Checking thermometer...`,
+];

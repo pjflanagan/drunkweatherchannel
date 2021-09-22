@@ -7,7 +7,6 @@ export const searchTime: PhraseBank = {
     'sunrise'
   ],
   afternoon: [
-    'day',
     'daytime',
     'darty',
     'afternoon'
@@ -20,7 +19,9 @@ export const searchTime: PhraseBank = {
   ],
   night: [
     'night',
-    'party'
+    'party',
+    'rave',
+    'nightclub'
   ]
 };
 

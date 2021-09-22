@@ -54,7 +54,7 @@ const MainComponent: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!isEmpty(coords) && isEmpty(weatherData) && isEmpty(errorMessage)) {
+    if (coords && isEmpty(weatherData) && isEmpty(errorMessage)) {
       let newWeatherData;
       (async function () {
         try {
@@ -94,6 +94,7 @@ const MainComponent: FC = () => {
     <main>
       <Container>
         <WeatherComponent
+          waitingForLocation={!coords}
           weatherData={weatherData}
           cycleTempUnit={cycleTempUnit}
           tempUnit={tempUnit}

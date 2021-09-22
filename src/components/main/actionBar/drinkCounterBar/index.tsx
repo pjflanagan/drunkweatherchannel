@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from "react";
 
-import { getRandomPhraseFromBank, getRandomPhraseFromSection, drinksCounter, blurbAddDrink, blurbRemoveDrink } from 'src/content';
-import { useGeneratedPhrase } from "src/hooks";
-import { Bar, BarSection } from 'src/elements';
+import {
+  PhraseBankContent,
+  getRandomPhraseFromBank,
+  getRandomPhraseFromSection,
+  drinksCounter,
+  blurbAddDrink,
+  blurbRemoveDrink
+} from 'content';
+import { useGeneratedPhrase } from "hooks";
+import { Bar, BarSection } from 'elements';
 
 import * as Style from './style.module.scss';
+
+type DrinkCounterBarProps = {
+  drinkCount: number
+  setDrinkCount: (newDrinkCount: number) => void
+  setBlurb: (newBlurb: PhraseBankContent) => void
+
+}
 
 export const DrinkCounterBar = ({
   drinkCount,
   setDrinkCount,
   setBlurb
-}) => {
+}: DrinkCounterBarProps) => {
 
   const makeCounterLabel = () => {
     return getRandomPhraseFromBank(drinksCounter, drinkCount);
@@ -24,7 +38,7 @@ export const DrinkCounterBar = ({
 
   const addDrink = () => {
     setBlurb(getRandomPhraseFromBank(blurbAddDrink, drinkCount + 1));
-    if (drinkCount === drinksCounter.length - 1) {
+    if (drinkCount === (drinksCounter.length as number) - 1) {
       resetCounterLabel();
       return;
     }
@@ -49,7 +63,9 @@ export const DrinkCounterBar = ({
         {'-'}
       </BarSection>
       <BarSection className={Style.center}>
-        {drinkCounterLabel[0]}{' '}
+        <span>
+          {drinkCounterLabel[0]}{' '}
+        </span>
         <span className={Style.unit}>
           {drinkCounterLabel[1]}
         </span>

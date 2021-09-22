@@ -1,4 +1,4 @@
-import { makeArray } from 'src/helpers';
+import { makeArray } from 'helpers';
 
 import { PhraseBank } from '..';
 
@@ -32,6 +32,7 @@ export const drinksCounter: PhraseBank = [
     ['1', 'bottle'],
     ['1', 'drink'],
     ['1', 'game of beer ball'],
+    ['1', 'martini, shaken, not stirred']
   ],
   // 2
   [
@@ -42,7 +43,7 @@ export const drinksCounter: PhraseBank = [
   // 3
   [
     ['1', 'pull from a handle'],
-    ['1 ', 'playthrough of Thunderstruck'],
+    ['1', 'playthrough of Thunderstruck'],
     ...drinkPluralWordBank.map(word => ['3', word]),
   ],
   // 4
@@ -55,6 +56,7 @@ export const drinksCounter: PhraseBank = [
   // 5
   [
     ['1', 'flight of strong beers'],
+    ['1', 'six pack of seltzers'],
     ...drinkPluralWordBank.map(word => ['5', word]),
   ],
   // 6

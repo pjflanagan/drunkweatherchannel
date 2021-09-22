@@ -145,7 +145,8 @@ export const sentenceNickname: PhraseBank = [
     `Hasselhoffed`,
     `Señor Ridiculoso`,
     `Captain Morgan`,
-    `Bacardi B`
+    `Bacardi B`,
+    `Marilyn Merlot`
   ]),
   // 10+
   [

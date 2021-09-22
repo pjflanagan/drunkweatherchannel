@@ -98,6 +98,7 @@ export const blurbTemperatureConversion: PhraseBank = {
     `Well, look who's a dumb American.`,
   ],
   c: [
+    `Math is hard.`,
     `Oh, look who's a fancy European`,
     `Well, look who's the fancy European`,
     `Celsius? Sure, whatever.`

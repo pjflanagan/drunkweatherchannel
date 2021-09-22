@@ -77,7 +77,7 @@ export const Weather = {
     const drunkFeelsLikeF = actualFeelsLikeF + 6 * Math.atan((drinkCount - 2) / 6) + 2;
     if (drunkFeelsLikeF > 86 && actualFeelsLikeF < 86) {
       // if the drunk feels like is higher than 86, return 86
-      return 86;
+      return convertFahrenheitToKelvin(86);
     }
     return convertFahrenheitToKelvin(drunkFeelsLikeF);
   }
