@@ -1,0 +1,10 @@
+.header {
+  position: fixed;
+  z-index: 100;
+
+  img {
+    filter: grayscale(1) opacity(0.5) invert(1);
+    width: 28px;
+    margin: 8px
+  }
+}

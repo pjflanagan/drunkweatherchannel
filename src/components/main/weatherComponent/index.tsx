@@ -46,7 +46,7 @@ export const WeatherComponent = ({
       getSentenceTime(),
       ['Right now', 'Outside'],
       [`it's`, `it is`, 'the weather is'],
-      `${actualTemp}${displayTempUnit}`,
+      `${actualTemp}`,
       {
         exclude: !weatherData,
         bank: sentenceWeatherDescription,
@@ -71,7 +71,7 @@ export const WeatherComponent = ({
   }
 
   const [locationPlaceholder] = useGeneratedPhrase('', setLocationPlaceholder, []);
-  const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drinkCount, tempUnit, weatherData]);
+  const [phrase] = useGeneratedPhrase('', makeWeatherSentence, [drunkFeelsLike, tempUnit, weatherData]);
   const img = weatherData?.weather[0]?.icon;
 
   return (
@@ -99,7 +99,8 @@ export const WeatherComponent = ({
             onClick={cycleTempUnit}
             className={Style.drunkFeelsLike}
           >
-            {!!weatherData ? drunkFeelsLike : '--'}{displayTempUnit}
+            <div className={Style.drunkFeelsLikeNumber}>{!!weatherData ? drunkFeelsLike : '--'}</div>
+            <div className={Style.drunkFeelsLikeUnit}>{displayTempUnit}</div>
           </div>
         </div>
 

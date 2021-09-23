@@ -31,7 +31,7 @@ export const blurbAddDrink: PhraseBank = [
     `Why you babysittin' only 2 or 3 shots?`,
     `Let's get it started in here!`,
     `One bourbon, one scotch, one beer.`,
-    `Someone's 3'st-y.`
+    `Someone's thirsty.`
   ],
   // 4
   [
@@ -98,8 +98,8 @@ export const blurbTemperatureConversion: PhraseBank = {
   ],
   c: [
     `Math is hard.`,
-    `Oh, look who's a fancy European`,
-    `Well, look who's the fancy European`,
+    `Oh, look who's a fancy European.`,
+    `Well, look who's the fancy European.`,
     `Celsius? Sure, whatever.`
   ]
 }

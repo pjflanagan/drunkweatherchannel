@@ -16,7 +16,7 @@ import {
 import {
   useCoordinates,
 } from 'hooks';
-import { Container } from 'elements';
+import { Container, Header } from 'elements';
 
 import { BlurbComponent } from './blurbComponent';
 import { WeatherComponent } from './weatherComponent';
@@ -92,6 +92,7 @@ const MainComponent: FC = () => {
 
   return (
     <main>
+      <Header />
       <Container>
         <WeatherComponent
           waitingForLocation={!coords}

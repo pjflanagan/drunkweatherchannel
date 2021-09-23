@@ -42,10 +42,22 @@
 
     .drunk-feels-like-holder {
       .drunk-feels-like {
+        display: flex;
+        justify-content: center;
         font-size: 4em;
-        font-weight: 900;
         text-align: center;
         text-shadow: 0em 0.1em 0.1em #0006;
+
+        .drunk-feels-like-number {
+          font-weight: 900;
+        }
+
+        .drunk-feels-like-unit {
+          font-size: 0.4em;
+          margin-top: 0.4em;
+          margin-left: 0.2em;
+          font-weight: 500;
+        }
       }
     }
   }
