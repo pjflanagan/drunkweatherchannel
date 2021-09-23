@@ -1,2 +1,2 @@
-export * from './contentBankHelpers';
+export * from './contentBank';
 export * from './banks';

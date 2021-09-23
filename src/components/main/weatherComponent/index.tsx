@@ -37,8 +37,8 @@ export const WeatherComponent = ({
   const actualFeelsLikeKelvin = weatherData?.main?.feels_like || 0;
   const drunkFeelsLikeKelvin = Weather.calculateFeelsLike(actualFeelsLikeKelvin, drinkCount);
 
-  const drunkFeelsLike = Weather.convertTemperature(drunkFeelsLikeKelvin, tempUnit);
-  const actualTemp = Weather.convertTemperature(actualTempKelvin, tempUnit);
+  const drunkFeelsLike = Math.round(Weather.convertTemperature(drunkFeelsLikeKelvin, tempUnit));
+  const actualTemp = Math.round(Weather.convertTemperature(actualTempKelvin, tempUnit));
   const displayTempUnit = `°${tempUnit.toUpperCase()}`;
 
   const makeWeatherSentence = () => {

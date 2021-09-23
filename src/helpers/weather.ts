@@ -5,9 +5,9 @@ export type TemperatureUnit = 'f' | 'c' | 'k';
 type Kelvin = number;
 type Fahrenheit = number;
 
-const convertToFahrenheit = (kelvin: Kelvin): Fahrenheit => ((kelvin - 273.15) * 1.8) + 32
+export const convertToFahrenheit = (k: Kelvin): Fahrenheit => ((k - 273.15) * 1.8) + 32
 
-const convertFahrenheitToKelvin = (f: Fahrenheit): Kelvin => ((f - 32) / 1.8) + 273.15;
+export const convertFahrenheitToKelvin = (f: Fahrenheit): Kelvin => (f - 32) / 1.8 + 273.15;
 
 // Drunk Feels Like
 
@@ -63,7 +63,7 @@ export const Weather = {
           return kelvin;
       }
     })();
-    return Math.round(newTemp);
+    return newTemp;
   },
   getLabelFromTemperature: (kelvin: Kelvin): string => {
     const fahrenheit = convertToFahrenheit(kelvin);
@@ -94,7 +94,7 @@ export const Weather = {
       return actualFeelsLikeKelvin;
     }
     const actualFeelsLikeF: Fahrenheit = convertToFahrenheit(actualFeelsLikeKelvin);
-    if (actualFeelsLikeF > IDEAL_TEMP_F) {
+    if (actualFeelsLikeF >= IDEAL_TEMP_F) {
       // if it is warmer than IDEAL_TEMP_F, then just return original
       return actualFeelsLikeKelvin;
     }

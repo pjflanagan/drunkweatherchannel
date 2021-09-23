@@ -11,13 +11,11 @@ export const blurbWelcome: PhraseBankSection = [
 ];
 
 export const blurbAddDrink: PhraseBank = [
-  // 0
-  [
-    `Stone cold sober.`,
-    `I've had more drinks in AA`
-  ],
+  // 0 - this will never get hit
+  [],
   // 1
   [
+    `I've had more drinks in AA.`,
     `Some light pregaming, respectable.`,
     `More or less sober.`,
     `One drink, what is this? Church?`
@@ -33,7 +31,7 @@ export const blurbAddDrink: PhraseBank = [
     `Why you babysittin' only 2 or 3 shots?`,
     `Let's get it started in here!`,
     `One bourbon, one scotch, one beer.`,
-    `Someone's 3'st-y`
+    `Someone's 3'st-y.`
   ],
   // 4
   [
@@ -79,6 +77,7 @@ export const blurbAddDrink: PhraseBank = [
 ];
 
 export const blurbRemoveDrink: PhraseBankSection = [
+  `Tryna get sober? Been there.`,
   `If you lost count, you're probably drunk.`,
   `Did you throw up?`,
   `Sobering up? Go fix that.`,

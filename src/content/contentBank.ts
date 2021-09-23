@@ -42,7 +42,7 @@ const validateSectionIndex = (bank: PhraseBank, sectionIndex: PhraseBankSectionI
 
 export const getRandomPhraseFromBank = (bank: PhraseBank, sectionIndex: PhraseBankSectionIndex): PhraseBankContent => {
   const validatedSectionIndex = validateSectionIndex(bank, sectionIndex);
-  const section = bank[validatedSectionIndex];
+  const section = bank[validatedSectionIndex as any];
   return getRandomPhraseFromSection(section);
 }
 
