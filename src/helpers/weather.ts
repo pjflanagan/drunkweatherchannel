@@ -21,23 +21,23 @@ const getDrunkFeelsLikeFormulaConstants = (actualFeelsLikeF: Fahrenheit): DrunkF
   switch (true) {
     case actualFeelsLikeF < 0:
     case actualFeelsLikeF < 10:
-      return [9, 8];
-    case actualFeelsLikeF < 20:
-      return [8, 9];
-    case actualFeelsLikeF < 30:
-      return [7, 10];
-    case actualFeelsLikeF < 40:
-      return [7, 11];
-    case actualFeelsLikeF < 50:
-      return [6, 13];
-    case actualFeelsLikeF < 60:
       return [6, 15];
+    case actualFeelsLikeF < 20:
+      return [6, 16];
+    case actualFeelsLikeF < 30:
+      return [5, 17];
+    case actualFeelsLikeF < 40:
+      return [5, 19];
+    case actualFeelsLikeF < 50:
+      return [4, 20];
+    case actualFeelsLikeF < 60:
+      return [4, 16];
     case actualFeelsLikeF < 70:
-      return [5, 13];
+      return [3, 14];
     case actualFeelsLikeF < 80:
-      return [4, 9];
+      return [3, 9];
     case actualFeelsLikeF < IDEAL_TEMP_F: // 86
-      return [3, 6];
+      return [2, 6];
     default:
       return [0, 0];
   }

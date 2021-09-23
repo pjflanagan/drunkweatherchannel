@@ -13,17 +13,22 @@ import {
 type calculateDrunkFeelsLikeFTestData = [number, number, number];
 
 describe('helpers/weather.ts', function () {
-  describe('calculateDrunkFeelsLikeF', function () {
+  describe('calculateDrunkFeelsLikeF > user data training', function () {
     const td: calculateDrunkFeelsLikeFTestData[] = [
-      [68, 9, 79],
+      // user data 
+      [35, 3, 41],
+      [48, 12, 66],
+      [53, 9, 72],
+      [59, 7, 71],
+      [63, 4, 70],
+      [74, 5, 83],
     ];
 
     td.forEach(([actualFeelsLikeF, drinkCount, expectedFeelsLikeF]) => {
       it(`should return ${expectedFeelsLikeF} F`, function () {
-        assert.equal(
-          calculateDrunkFeelsLikeF(actualFeelsLikeF, drinkCount),
-          expectedFeelsLikeF
-        );
+        const drunkFeelsLikeF = calculateDrunkFeelsLikeF(actualFeelsLikeF, drinkCount);
+        const close = Math.abs(expectedFeelsLikeF - drunkFeelsLikeF) <= 2;
+        assert.equal(close, true, `${drunkFeelsLikeF} !== ${expectedFeelsLikeF}`);
       });
     });
   });
@@ -49,8 +54,8 @@ describe('helpers/weather.ts', function () {
         [IDEAL_TEMP_F + 1, 10, IDEAL_TEMP_F + 1],
         [IDEAL_TEMP_F, 10, IDEAL_TEMP_F],
         // ideal temp and lower
-        [54, 9, 67],
-        [68, 9, 79],
+        // [54, 9, 67],
+        // [68, 9, 79],
       ];
 
       td.forEach(([actualFeelsLikeF, drinkCount, expectedFeelsLikeF]) => {
