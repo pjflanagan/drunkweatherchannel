@@ -34,7 +34,7 @@ describe('helpers/weather.ts', function () {
   });
 
   // describe('convertToFahrenheit and convertToFahrenheit', function () {
-  //   for (let i = 0; i < 100; i++) {
+  //   for (let i = -20; i < 100; i+=5) {
   //     it(`should return ${i} F`, function () {
   //       const k = convertFahrenheitToKelvin(i);
   //       const f = convertToFahrenheit(k);
