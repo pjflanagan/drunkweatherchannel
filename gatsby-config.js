@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://weather-drunk.pjflanagan.me`,
-    title: `Weather Drunk`,
+    title: `The Drunk Weather Channel`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -21,7 +21,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `The Drunk Weather Channel`,
-        short_name: `Weather Drunk`,
+        short_name: `Drunk Weather Channel`,
         start_url: `/`,
         background_color: `#024e98`,
         theme_color: `#024e98`,
