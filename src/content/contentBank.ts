@@ -42,6 +42,7 @@ const validateSectionIndex = (bank: PhraseBank, sectionIndex: PhraseBankSectionI
 
 export const getRandomPhraseFromBank = (bank: PhraseBank, sectionIndex: PhraseBankSectionIndex): PhraseBankContent => {
   const validatedSectionIndex = validateSectionIndex(bank, sectionIndex);
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const section = bank[validatedSectionIndex as any];
   return getRandomPhraseFromSection(section);
 }

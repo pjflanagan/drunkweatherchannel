@@ -22,6 +22,7 @@ import { BlurbComponent } from './blurbComponent';
 import { WeatherComponent } from './weatherComponent';
 import { ActionBar } from './actionBar';
 import { GifSlideshow } from './gifSlideshow';
+import { SplashComponent } from './splashComponent';
 
 const MainComponent: FC = () => {
 
@@ -93,6 +94,7 @@ const MainComponent: FC = () => {
   return (
     <main>
       <Header />
+      <SplashComponent />
       <Container>
         <WeatherComponent
           waitingForLocation={!coords}

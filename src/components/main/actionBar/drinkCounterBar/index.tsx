@@ -17,7 +17,6 @@ type DrinkCounterBarProps = {
   drinkCount: number
   setDrinkCount: (newDrinkCount: number) => void
   setBlurb: (newBlurb: PhraseBankContent) => void
-
 }
 
 export const DrinkCounterBar = ({
