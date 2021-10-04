@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 
-import Logo from 'images/icon.png'; // TODO: use the small logo
+import Logo from 'images/icon-sm.png'; // TODO: use the small logo
 import { getRandomPhraseFromSection, slogan as sloganSection } from 'content';
 import { useGeneratedPhrase } from "hooks";
 
