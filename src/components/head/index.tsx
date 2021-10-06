@@ -25,7 +25,7 @@ export const HeadComponent = () => {
       <meta name="author" content={AUTHOR} />
       <meta name="keywords" content={KEYWORDS} />
 
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      {/* <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> */}
 
       <meta property="og:title" content={TITLE} />
       <meta property="og:description" content={DESCRIPTION} />
