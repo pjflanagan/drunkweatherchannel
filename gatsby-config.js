@@ -35,5 +35,16 @@ module.exports = {
         precachePages: [`/`],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-CNFGV4ZHRG",
+        ],
+        pluginConfig: {
+          head: false,
+        },
+      },
+    },
   ],
 };

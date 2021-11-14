@@ -35,17 +35,11 @@ const MainComponent: FC = () => {
   const [errorMessage, setErrorMessage] = useState<PhraseBankContent>('');
 
   const cycleTempUnit = () => {
-    const newTempUnit = (() => {
-      switch (tempUnit) {
-        case 'f':
-          return 'c';
-        case 'c':
-          return 'k';
-        case 'k':
-        default:
-          return 'f';
-      }
-    })();
+    const newTempUnit: TemperatureUnit = {
+      f: 'c' as TemperatureUnit,
+      c: 'k' as TemperatureUnit,
+      k: 'f' as TemperatureUnit
+    }[tempUnit as TemperatureUnit];
     setTempUnit(newTempUnit);
     setBlurb(getRandomPhraseFromBank(blurbTemperatureConversion, newTempUnit));
   }

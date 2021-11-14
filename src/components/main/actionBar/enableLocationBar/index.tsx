@@ -9,18 +9,12 @@ export const EnableLocationBar = () => {
 
   const permissionState = usePermission('geolocation');
 
-  const label = (() => {
-    switch (permissionState) {
-      case 'denied':
-        return 'Location disabled, please enable';
-      case 'unavailable':
-      case 'prompt':
-        return 'Please enable location';
-      case 'granted':
-      default:
-        return 'Searching for location...'
-    };
-  })();
+  const label = {
+    denied: 'Location disabled, please enable',
+    unavailable: 'Location not available',
+    prompt: 'Please enable location',
+    granted: 'Searching for location...'
+  }[permissionState] || 'Searching for location...';
 
   return (
     <Bar>

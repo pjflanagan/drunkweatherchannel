@@ -52,17 +52,11 @@ export const calculateDrunkFeelsLikeF = (actualFeelsLikeF: Fahrenheit, drinkCoun
 
 export const Weather = {
   convertTemperature: (kelvin: Kelvin, unit: TemperatureUnit): number => {
-    const newTemp = (() => {
-      switch (unit) {
-        case 'f':
-          return convertToFahrenheit(kelvin);
-        case 'c':
-          return kelvin - 273.15;
-        case 'k':
-        default:
-          return kelvin;
-      }
-    })();
+    const newTemp = {
+      f: convertToFahrenheit(kelvin),
+      c: kelvin - 273.15,
+      k: kelvin
+    }[unit];
     return newTemp;
   },
   getLabelFromTemperature: (kelvin: Kelvin): string => {
