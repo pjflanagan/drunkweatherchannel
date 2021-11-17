@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://weather-drunk.pjflanagan.me`,
+    siteUrl: `https://drunkweatherchannel.flanny.app`,
     title: `The Drunk Weather Channel`,
   },
   plugins: [
