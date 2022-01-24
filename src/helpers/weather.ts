@@ -1,7 +1,11 @@
 
 // Units and Conversions
 
-export type TemperatureUnit = 'f' | 'c' | 'k';
+export enum TemperatureUnit {
+  F = 'f',
+  C = 'c',
+  K = 'k',
+}
 type Kelvin = number;
 type Fahrenheit = number;
 

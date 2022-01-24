@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
+import { useGeolocation } from 'react-use';
 
 import { API, TemperatureUnit, Time, WeatherData, GifList } from 'helpers';
 import {
@@ -13,9 +14,6 @@ import {
   searchTime,
   blurbWelcome,
 } from 'content';
-import {
-  useCoordinates,
-} from 'hooks';
 import { Container, Header } from 'elements';
 
 import { BlurbComponent } from './blurbComponent';
@@ -26,8 +24,12 @@ import { SplashComponent } from './splashComponent';
 
 const MainComponent: FC = () => {
 
-  const coords = useCoordinates();
-  const [tempUnit, setTempUnit] = useState<TemperatureUnit>('f');
+  const { latitude, longitude } = useGeolocation();
+  const coords = (!latitude || !longitude) ? null : {
+    lat: latitude,
+    lon: longitude
+  }
+  const [tempUnit, setTempUnit] = useState<TemperatureUnit>(TemperatureUnit.F);
   const [drinkCount, setDrinkCount] = useState<number>(0);
   const [weatherData, setWeatherData] = useState<WeatherData>(null);
   const [blurb, setBlurb] = useState<PhraseBankContent>('')
@@ -36,10 +38,10 @@ const MainComponent: FC = () => {
 
   const cycleTempUnit = () => {
     const newTempUnit: TemperatureUnit = {
-      f: 'c' as TemperatureUnit,
-      c: 'k' as TemperatureUnit,
-      k: 'f' as TemperatureUnit
-    }[tempUnit as TemperatureUnit];
+      'f': TemperatureUnit.C,
+      'c': TemperatureUnit.K,
+      'k': TemperatureUnit.F
+    }[tempUnit];
     setTempUnit(newTempUnit);
     setBlurb(getRandomPhraseFromBank(blurbTemperatureConversion, newTempUnit));
   }
