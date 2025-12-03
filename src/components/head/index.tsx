@@ -39,6 +39,10 @@ export const HeadComponent = () => {
       <meta name="twitter:site" content={HANDLE} />
       <meta name="twitter:creator" content={HANDLE} />
       <meta name="twitter:image" content={IMG_TW} />
+
+
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8781416766784863"
+        crossOrigin="anonymous"></script>
     </Helmet>
   );
 }
